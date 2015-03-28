@@ -1,4 +1,4 @@
-# Let's Code Games - Series 01 - Action Adventure Tutorial
+# Let's Code Games - Series 01 - Zelda III Tutorial
 
 This is a tutorial project recreating the mechanics of the SNES classic game Zelda III - A Link to the Past
 
