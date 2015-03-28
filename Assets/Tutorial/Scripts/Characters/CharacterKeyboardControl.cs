@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterMovementKeyboardControl : CharacterMovementBaseControl 
+public class CharacterKeyboardControl : CharacterBaseControl 
 {
     void Start() 
     {
@@ -11,7 +11,15 @@ public class CharacterMovementKeyboardControl : CharacterMovementBaseControl
     void Update() 
     {
         UpdateDirection();
-        
+        UpdateAction();
+    }
+
+    void UpdateAction()
+    {
+        if( Input.GetKeyDown( KeyCode.Space ) )
+        {
+            OnActionPressed();
+        }
     }
 
     void UpdateDirection()
