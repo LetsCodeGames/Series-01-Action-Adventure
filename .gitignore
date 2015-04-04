@@ -7,3 +7,6 @@ Library/
 obj/
 Assets/AssetStoreTools/
 Assets/AssetStoreTools.meta
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-Editor.csproj
+Temp/

@@ -7,6 +7,7 @@ public class CharacterMovementModel : MonoBehaviour
     public float Speed;
 
     private Vector3 m_MovementDirection;
+    private Vector3 m_FacingDirection;
 
     private Rigidbody2D m_Body;
 
@@ -44,11 +45,21 @@ public class CharacterMovementModel : MonoBehaviour
     public void SetDirection( Vector2 direction )
     {
         m_MovementDirection = new Vector3( direction.x, direction.y, 0 );
+
+        if( direction != Vector2.zero )
+        {
+            m_FacingDirection = m_MovementDirection;
+        }
     }
 
     public Vector3 GetDirection()
     {
         return m_MovementDirection;
+    }
+
+    public Vector3 GetFacingDirection()
+    {
+        return m_FacingDirection;
     }
 
     public bool IsMoving()
