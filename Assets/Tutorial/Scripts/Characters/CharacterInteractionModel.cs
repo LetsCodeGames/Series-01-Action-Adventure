@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent( typeof( Character ) )]
 public class CharacterInteractionModel : MonoBehaviour
 {
+    private Character m_Character;
     private Collider2D m_Collider;
     private CharacterMovementModel m_MovementModel;
 
     void Awake()
     {
+        m_Character = GetComponent<Character>();
         m_Collider = GetComponent<Collider2D>();
         m_MovementModel = GetComponent<CharacterMovementModel>();
     }
@@ -20,25 +23,25 @@ public class CharacterInteractionModel : MonoBehaviour
 
     public void OnInteract()
     {
-        Interactable usableInteractable = FindUsableInteractable();
+        InteractableBase usableInteractable = FindUsableInteractable();
 
         if( usableInteractable == null )
         {
             return;
         }
 
-        Debug.Log( "Found Interactable: " + usableInteractable.name );
+        usableInteractable.OnInteract( m_Character );
     }
 
-    Interactable FindUsableInteractable()
+    InteractableBase FindUsableInteractable()
     {
-        Collider2D[] closeColliders = Physics2D.OverlapCircleAll( transform.position, 1f );
-        Interactable closestInteractable = null;
+        Collider2D[] closeColliders = Physics2D.OverlapCircleAll( transform.position, 0.8f );
+        InteractableBase closestInteractable = null;
         float angleToClosestInteractble = Mathf.Infinity;
 
         for( int i = 0; i < closeColliders.Length; ++i )
         {
-            Interactable colliderInteractable = closeColliders[ i ].GetComponent<Interactable>();
+            InteractableBase colliderInteractable = closeColliders[ i ].GetComponent<InteractableBase>();
 
             if( colliderInteractable == null )
             {

@@ -18,7 +18,7 @@ public class CharacterMovementView : MonoBehaviour
         }
     }
 
-    void Update() 
+    public void Update() 
     {
         UpdateDirection();   
     }
