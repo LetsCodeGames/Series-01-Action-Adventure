@@ -5,10 +5,12 @@ public class CharacterBaseControl : MonoBehaviour
 {
     private CharacterMovementModel m_MovementModel;
     private CharacterInteractionModel m_InteractionModel;
+    private CharacterMovementView m_MovementView;
 
     void Awake()
     {
         m_MovementModel = GetComponent<CharacterMovementModel>();
+        m_MovementView = GetComponent<CharacterMovementView>();
         m_InteractionModel = GetComponent<CharacterInteractionModel>();
     }
 
@@ -30,5 +32,21 @@ public class CharacterBaseControl : MonoBehaviour
         }
 
         m_InteractionModel.OnInteract();
+    }
+
+    protected void OnAttackPressed()
+    {
+        if( m_MovementModel == null )
+        {
+            return;
+        }
+
+        if( m_MovementModel.CanAttack() == false )
+        {
+            return;
+        }
+
+        m_MovementModel.DoAttack();
+        m_MovementView.DoAttack();
     }
 }

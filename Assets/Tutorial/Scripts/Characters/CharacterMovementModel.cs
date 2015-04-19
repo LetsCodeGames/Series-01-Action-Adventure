@@ -5,6 +5,8 @@ using System.Runtime.Remoting.Messaging;
 public class CharacterMovementModel : MonoBehaviour 
 {
     public float Speed;
+    public Transform WeaponParent;
+    public GameObject SwordPrefab;
 
     private Vector3 m_MovementDirection;
     private Vector3 m_FacingDirection;
@@ -12,6 +14,9 @@ public class CharacterMovementModel : MonoBehaviour
     private Rigidbody2D m_Body;
 
     private bool m_IsFrozen;
+    private bool m_IsAttacking;
+
+    private ItemType m_EquippedWeapon = ItemType.None;
 
     void Awake()
     {
@@ -36,7 +41,7 @@ public class CharacterMovementModel : MonoBehaviour
 
     void UpdateMovement()
     {
-        if( m_IsFrozen == true )
+        if( m_IsFrozen == true || m_IsAttacking == true )
         {
             m_Body.velocity = Vector2.zero;
             return;
@@ -57,7 +62,7 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void SetDirection( Vector2 direction )
     {
-        if( m_IsFrozen == true )
+        if( m_IsFrozen == true || m_IsAttacking == true )
         {
             return;
         }
@@ -88,5 +93,51 @@ public class CharacterMovementModel : MonoBehaviour
         }
 
         return m_MovementDirection != Vector3.zero;
+    }
+
+    public void EquipWeapon( ItemType itemType )
+    {
+        if( itemType != ItemType.Sword )
+        {
+            return;
+        }
+
+        m_EquippedWeapon = itemType;
+
+        GameObject newSwordObject = (GameObject)Instantiate( SwordPrefab );
+
+        newSwordObject.transform.parent = WeaponParent;
+        newSwordObject.transform.localPosition = Vector2.zero;
+        newSwordObject.transform.localRotation = Quaternion.identity;
+    }
+
+    public bool CanAttack()
+    {
+        if( m_IsAttacking == true )
+        {
+            return false;
+        }
+
+        if( m_EquippedWeapon == ItemType.None )
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void DoAttack()
+    {
+        
+    }
+
+    public void OnAttackStarted()
+    {
+        m_IsAttacking = true;
+    }
+
+    public void OnAttackFinished()
+    {
+        m_IsAttacking = false;
     }
 }

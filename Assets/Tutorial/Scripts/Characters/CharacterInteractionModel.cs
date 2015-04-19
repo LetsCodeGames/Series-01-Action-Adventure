@@ -35,7 +35,12 @@ public class CharacterInteractionModel : MonoBehaviour
 
     InteractableBase FindUsableInteractable()
     {
-        Collider2D[] closeColliders = Physics2D.OverlapCircleAll( transform.position, 0.8f );
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+
+        Collider2D[] closeColliders = Physics2D.OverlapAreaAll( 
+            (Vector2)transform.position + boxCollider.offset + boxCollider.size * 0.6f,
+            (Vector2)transform.position + boxCollider.offset - boxCollider.size * 0.6f );
+
         InteractableBase closestInteractable = null;
         float angleToClosestInteractble = Mathf.Infinity;
 
