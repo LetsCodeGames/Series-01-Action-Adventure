@@ -6,7 +6,7 @@ There will be a live stream each week to show the development of this project
 
 Join me **every saturday** at 
 * 6pm CET (Europe)
-* 1pm EST (East Coast)
-* 10am PST (West Coast) 
+* 12pm EST (East Coast)
+* 9am PST (West Coast) 
 
 on http://www.twitch.tv/letscodegames
