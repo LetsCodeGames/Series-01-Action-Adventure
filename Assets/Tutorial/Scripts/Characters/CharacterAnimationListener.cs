@@ -6,7 +6,7 @@ public class CharacterAnimationListener : MonoBehaviour
     public CharacterMovementModel MovementModel;
     public CharacterMovementView MovementView;
 
-    public void OnAttackStarted()
+    public void OnAttackStarted( int sortingOrder )
     {
         if( MovementModel != null )
         {
@@ -19,6 +19,7 @@ public class CharacterAnimationListener : MonoBehaviour
         }
 
         ShowWeapon();
+        SetSortingOrderOfWeapon( sortingOrder );
     }
 
     public void OnAttackFinished()
@@ -49,6 +50,14 @@ public class CharacterAnimationListener : MonoBehaviour
         if( MovementView != null )
         {
             MovementView.HideWeapon();
+        }
+    }
+
+    public void SetSortingOrderOfWeapon( int sortingOrder )
+    {
+        if( MovementView != null )
+        {
+            MovementView.SetSortingOrderOfWeapon( sortingOrder );
         }
     }
 }

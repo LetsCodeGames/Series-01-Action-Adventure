@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 462b301dd19048e4fa43a95d6a795d76
-timeCreated: 1429373728
+timeCreated: 1430590234
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -32,7 +32,8 @@ TextureImporter:
     21300050: LunkAttack_25
     21300052: LunkAttack_26
     21300054: LunkAttack_27
-    21300056: LunkHit_3
+    21300056: LunkHit_4
+    21300058: LunkHit_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -358,11 +359,21 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: LunkHit_3
+    - name: LunkHit_4
       rect:
         serializedVersion: 2
         x: 768
         y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LunkHit_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
         width: 128
         height: 128
       alignment: 0

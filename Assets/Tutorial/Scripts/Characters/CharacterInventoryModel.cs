@@ -33,12 +33,18 @@ public class CharacterInventoryModel : MonoBehaviour
         {
             ItemData itemData = Database.Item.FindItem( itemType );
 
-            if( itemData != null && itemData.IsEquipable == true )
+            if( itemData != null )
             {
-                m_MovementModel.EquipWeapon( itemType );
+                if( itemData.Animation != ItemData.PickupAnimation.None )
+                {
+                    m_MovementModel.ShowItemPickup( itemType );
+                }
+
+                if( itemData.IsEquipable == ItemData.EquipPosition.SwordHand )
+                {
+                    m_MovementModel.EquipWeapon( itemType );
+                }
             }
         }
-
-        Debug.Log( amount + " " + itemType + " added" );
     }
 }

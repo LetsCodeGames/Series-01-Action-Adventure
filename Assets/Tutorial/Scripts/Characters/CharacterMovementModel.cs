@@ -6,6 +6,8 @@ public class CharacterMovementModel : MonoBehaviour
 {
     public float Speed;
     public Transform WeaponParent;
+    public Transform ShieldParent;
+    public Transform PickupItemParent;
 
     private Vector3 m_MovementDirection;
     private Vector3 m_FacingDirection;
@@ -18,14 +20,19 @@ public class CharacterMovementModel : MonoBehaviour
 
     private ItemType m_EquippedWeapon = ItemType.None;
 
+    private GameObject m_PickupItem;
+
+    private Vector2 m_PushDirection;
+    private float m_PushTime;
+
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    void Update()
     {
-        SetDirection( new Vector2( 0, -1 ) );
+        UpdatePushTime();
     }
 
     void FixedUpdate()
@@ -37,6 +44,11 @@ public class CharacterMovementModel : MonoBehaviour
     {
         
 
+    }
+
+    void UpdatePushTime()
+    {
+        m_PushTime = Mathf.MoveTowards( m_PushTime, 0f, Time.deltaTime );
     }
 
     void UpdateMovement()
@@ -52,7 +64,19 @@ public class CharacterMovementModel : MonoBehaviour
             m_MovementDirection.Normalize();
         }
 
-        m_Body.velocity = m_MovementDirection * Speed;
+        if( IsBeingPushed() == true )
+        {
+            m_Body.velocity = m_PushDirection;
+        }
+        else
+        {
+            m_Body.velocity = m_MovementDirection * Speed;
+        }
+    }
+
+    public bool IsBeingPushed()
+    {
+        return m_PushTime > 0;
     }
 
     public bool IsFrozen()
@@ -91,10 +115,17 @@ public class CharacterMovementModel : MonoBehaviour
         {
             m_PickingUpObject = ItemType.None;
             SetFrozen( false, true );
+            Destroy( m_PickupItem );
         }
 
         if( m_IsFrozen == true || m_IsAttacking == true )
         {
+            return;
+        }
+
+        if( IsBeingPushed() == true )
+        {
+            m_MovementDirection = m_PushDirection;
             return;
         }
 
@@ -128,6 +159,11 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void EquipWeapon( ItemType itemType )
     {
+        if( WeaponParent == null )
+        {
+            return;
+        }
+
         ItemData itemData = Database.Item.FindItem( itemType );
 
         if( itemData == null )
@@ -135,22 +171,50 @@ public class CharacterMovementModel : MonoBehaviour
             return;
         }
 
-        if( itemData.IsEquipable == false )
+        if( itemData.IsEquipable != ItemData.EquipPosition.SwordHand )
         {
             return;
         }
 
         m_EquippedWeapon = itemType;
 
+
         GameObject newSwordObject = (GameObject)Instantiate( itemData.Prefab );
 
         newSwordObject.transform.parent = WeaponParent;
         newSwordObject.transform.localPosition = Vector2.zero;
         newSwordObject.transform.localRotation = Quaternion.identity;
+    }
+
+    public void ShowItemPickup( ItemType itemType )
+    {
+        if( PickupItemParent == null )
+        {
+            return;
+        }
+
+        ItemData itemData = Database.Item.FindItem( itemType );
+
+        if( itemData == null )
+        {
+            return;
+        }
 
         SetFrozen( true, true );
 
         m_PickingUpObject = itemType;
+
+        m_PickupItem = (GameObject)Instantiate( itemData.Prefab );
+
+        m_PickupItem.transform.parent = PickupItemParent;
+        m_PickupItem.transform.localPosition = Vector2.zero;
+        m_PickupItem.transform.localRotation = Quaternion.identity;
+    }
+
+    public void PushCharacter( Vector2 pushDirection, float time )
+    {
+        m_PushDirection = pushDirection;
+        m_PushTime = time;
     }
 
     public ItemType GetItemThatIsBeingPickedUp()

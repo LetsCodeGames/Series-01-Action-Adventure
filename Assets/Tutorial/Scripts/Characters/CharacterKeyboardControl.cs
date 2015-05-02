@@ -5,7 +5,7 @@ public class CharacterKeyboardControl : CharacterBaseControl
 {
     void Start() 
     {
-        
+        SetDirection( new Vector2( 0, -1 ) );
     }
 
     void Update() 

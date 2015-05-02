@@ -28,6 +28,7 @@ public class CharacterMovementView : MonoBehaviour
     {
         UpdateDirection();   
         UpdatePickingUpAnimation();
+        UpdateHit();
     }
 
     void UpdatePickingUpAnimation()
@@ -57,7 +58,12 @@ public class CharacterMovementView : MonoBehaviour
 
         Animator.SetBool( "IsPickingUpOneHanded", isPickingUpOneHanded );
         Animator.SetBool( "IsPickingUpTwoHanded", isPickingUpTwoHanded );
-    }        
+    }
+
+    void UpdateHit()
+    {
+        Animator.SetBool( "IsHit", m_MovementModel.IsBeingPushed() );
+    }
 
     void UpdateDirection()
     {
@@ -97,8 +103,28 @@ public class CharacterMovementView : MonoBehaviour
         SetWeaponActive( false );
     }
 
+    public void SetSortingOrderOfWeapon( int sortingOrder )
+    {
+        if( WeaponParent == null )
+        {
+            return;
+        }
+
+        SpriteRenderer[] spriteRenderers = WeaponParent.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach( SpriteRenderer spriteRenderer in spriteRenderers )
+        {
+            spriteRenderer.sortingOrder = sortingOrder;
+        }
+    }
+
     void SetWeaponActive( bool doActivate )
     {
+        if( WeaponParent == null )
+        {
+            return;
+        }
+
         WeaponParent.gameObject.SetActive( doActivate );
         /*for( int i = 0; i < WeaponParent.childCount; ++i )
         {

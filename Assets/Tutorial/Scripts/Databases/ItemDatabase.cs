@@ -30,8 +30,15 @@ public class ItemData
         TwoHanded,
     }
 
+    public enum EquipPosition
+    {
+        NotEquipable,
+        SwordHand,
+        ShieldHand,
+    }
+
     public ItemType Type;
     public GameObject Prefab;
-    public bool IsEquipable;
+    public EquipPosition IsEquipable;
     public PickupAnimation Animation;
 }
