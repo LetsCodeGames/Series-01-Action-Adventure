@@ -27,7 +27,37 @@ public class CharacterMovementView : MonoBehaviour
     public void Update() 
     {
         UpdateDirection();   
+        UpdatePickingUpAnimation();
     }
+
+    void UpdatePickingUpAnimation()
+    {
+        bool isPickingUpOneHanded = false;
+        bool isPickingUpTwoHanded = false;
+
+        if( m_MovementModel.IsFrozen() == true )
+        {
+            ItemType pickupItem = m_MovementModel.GetItemThatIsBeingPickedUp();
+            
+            if( pickupItem != ItemType.None )
+            {
+                ItemData itemData = Database.Item.FindItem( pickupItem );
+
+                switch( itemData.Animation )
+                {
+                case ItemData.PickupAnimation.OneHanded:
+                    isPickingUpOneHanded = true;
+                    break;
+                case ItemData.PickupAnimation.TwoHanded:
+                    isPickingUpTwoHanded = true;
+                    break;
+                }
+            }
+        }
+
+        Animator.SetBool( "IsPickingUpOneHanded", isPickingUpOneHanded );
+        Animator.SetBool( "IsPickingUpTwoHanded", isPickingUpTwoHanded );
+    }        
 
     void UpdateDirection()
     {
@@ -49,10 +79,20 @@ public class CharacterMovementView : MonoBehaviour
 
     public void OnAttackStarted()
     {
-        SetWeaponActive( true );
+        
     }
 
     public void OnAttackFinished()
+    {
+        
+    }
+
+    public void ShowWeapon()
+    {
+        SetWeaponActive( true );
+    }
+
+    public void HideWeapon()
     {
         SetWeaponActive( false );
     }

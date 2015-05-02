@@ -6,7 +6,6 @@ public class CharacterMovementModel : MonoBehaviour
 {
     public float Speed;
     public Transform WeaponParent;
-    public GameObject SwordPrefab;
 
     private Vector3 m_MovementDirection;
     private Vector3 m_FacingDirection;
@@ -15,6 +14,7 @@ public class CharacterMovementModel : MonoBehaviour
 
     private bool m_IsFrozen;
     private bool m_IsAttacking;
+    private ItemType m_PickingUpObject = ItemType.None;
 
     private ItemType m_EquippedWeapon = ItemType.None;
 
@@ -55,13 +55,44 @@ public class CharacterMovementModel : MonoBehaviour
         m_Body.velocity = m_MovementDirection * Speed;
     }
 
-    public void SetFrozen( bool isFrozen )
+    public bool IsFrozen()
+    {
+        return m_IsFrozen;
+    }
+
+    public void SetFrozen( bool isFrozen, bool affectGameTime )
     {
         m_IsFrozen = isFrozen;
+
+        if( affectGameTime == true )
+        {
+            if( isFrozen == true )
+            {
+                StartCoroutine( FreezeTimeRoutine() );
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+    }
+
+    IEnumerator FreezeTimeRoutine()
+    {
+        yield return null;
+
+        Time.timeScale = 0;
     }
 
     public void SetDirection( Vector2 direction )
     {
+        if( direction != Vector2.zero &&
+            GetItemThatIsBeingPickedUp() != ItemType.None )
+        {
+            m_PickingUpObject = ItemType.None;
+            SetFrozen( false, true );
+        }
+
         if( m_IsFrozen == true || m_IsAttacking == true )
         {
             return;
@@ -97,18 +128,34 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void EquipWeapon( ItemType itemType )
     {
-        if( itemType != ItemType.Sword )
+        ItemData itemData = Database.Item.FindItem( itemType );
+
+        if( itemData == null )
+        {
+            return;
+        }
+
+        if( itemData.IsEquipable == false )
         {
             return;
         }
 
         m_EquippedWeapon = itemType;
 
-        GameObject newSwordObject = (GameObject)Instantiate( SwordPrefab );
+        GameObject newSwordObject = (GameObject)Instantiate( itemData.Prefab );
 
         newSwordObject.transform.parent = WeaponParent;
         newSwordObject.transform.localPosition = Vector2.zero;
         newSwordObject.transform.localRotation = Quaternion.identity;
+
+        SetFrozen( true, true );
+
+        m_PickingUpObject = itemType;
+    }
+
+    public ItemType GetItemThatIsBeingPickedUp()
+    {
+        return m_PickingUpObject;
     }
 
     public bool CanAttack()

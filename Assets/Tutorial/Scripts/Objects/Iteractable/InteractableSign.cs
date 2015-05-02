@@ -9,24 +9,16 @@ public class InteractableSign : InteractableBase
     {
         if( DialogBox.IsVisible() == true )
         {
-            Time.timeScale = 1;
-            character.Movement.SetFrozen( false );
+            character.Movement.SetFrozen( false, true );
             DialogBox.Hide();
         }
         else
         {
-            character.Movement.SetFrozen( true );
-
-            StartCoroutine( FreezeTimeRoutine() );
+            character.Movement.SetFrozen( true, true );
             DialogBox.Show( Text );
         }
         
     }
 
-    IEnumerator FreezeTimeRoutine()
-    {
-        yield return null;
-
-        Time.timeScale = 0;
-    }
+    
 }

@@ -29,11 +29,15 @@ public class CharacterInventoryModel : MonoBehaviour
             m_Items.Add( itemType, amount );
         }
 
-        if( itemType == ItemType.Sword && amount > 0 )
+        if( amount > 0 )
         {
-            m_MovementModel.EquipWeapon( itemType );
-        }
+            ItemData itemData = Database.Item.FindItem( itemType );
 
+            if( itemData != null && itemData.IsEquipable == true )
+            {
+                m_MovementModel.EquipWeapon( itemType );
+            }
+        }
 
         Debug.Log( amount + " " + itemType + " added" );
     }

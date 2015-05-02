@@ -17,6 +17,8 @@ public class CharacterAnimationListener : MonoBehaviour
         {
             MovementView.OnAttackStarted();
         }
+
+        ShowWeapon();
     }
 
     public void OnAttackFinished()
@@ -29,6 +31,24 @@ public class CharacterAnimationListener : MonoBehaviour
         if( MovementView != null )
         {
             MovementView.OnAttackFinished();
+        }
+
+        HideWeapon();
+    }
+
+    public void ShowWeapon()
+    {
+        if( MovementView != null )
+        {
+            MovementView.ShowWeapon();
+        }
+    }
+
+    public void HideWeapon()
+    {
+        if( MovementView != null )
+        {
+            MovementView.HideWeapon();
         }
     }
 }
