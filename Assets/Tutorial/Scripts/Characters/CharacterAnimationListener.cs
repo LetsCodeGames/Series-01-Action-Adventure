@@ -6,7 +6,7 @@ public class CharacterAnimationListener : MonoBehaviour
     public CharacterMovementModel MovementModel;
     public CharacterMovementView MovementView;
 
-    public void OnAttackStarted( int sortingOrder )
+    public void OnAttackStarted( AnimationEvent animationEvent )
     {
         if( MovementModel != null )
         {
@@ -19,7 +19,8 @@ public class CharacterAnimationListener : MonoBehaviour
         }
 
         ShowWeapon();
-        SetSortingOrderOfWeapon( sortingOrder );
+        SetSortingOrderOfWeapon( animationEvent.intParameter );
+        SetShieldDirection( animationEvent.stringParameter );
     }
 
     public void OnAttackFinished()
@@ -32,6 +33,7 @@ public class CharacterAnimationListener : MonoBehaviour
         if( MovementView != null )
         {
             MovementView.OnAttackFinished();
+            MovementView.ReleaseShieldDirection();
         }
 
         HideWeapon();
@@ -59,5 +61,39 @@ public class CharacterAnimationListener : MonoBehaviour
         {
             MovementView.SetSortingOrderOfWeapon( sortingOrder );
         }
+    }
+
+    public void SetShieldDirection( string direction )
+    {
+        if( MovementView == null || direction == "" )
+        {
+            return;
+        }
+
+        switch( direction )
+        {
+        default:
+            Debug.LogWarning( "Shield direction '" + direction + "' does not exist." );
+            break;
+        case "Front":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.Front );
+            break;
+        case "Back":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.Back );
+            break;
+        case "Left":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.Left );
+            break;
+        case "Right":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.Right );
+            break;
+        case "FrontHalf":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.FrontHalf );
+            break;
+        case "BackHalf":
+            MovementView.ForceShieldDirection( CharacterMovementView.ShieldDirection.BackHalf );
+            break;
+        }
+
     }
 }

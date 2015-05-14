@@ -13,7 +13,7 @@ public class AttackableBush : AttackableBase
         m_Renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public override void OnHit( ItemType item )
+    public override void OnHit( Collider2D hitCollider, ItemType item )
     {
         m_Renderer.sprite = DestroyedSprite;
 
@@ -27,5 +27,7 @@ public class AttackableBush : AttackableBase
             GameObject destroyEffect = (GameObject)Instantiate( DestroyEffect );
             destroyEffect.transform.position = transform.position;
         }
+
+        BroadcastMessage( "OnLootDrop", SendMessageOptions.DontRequireReceiver );
     }
 }

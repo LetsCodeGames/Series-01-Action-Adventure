@@ -19,6 +19,7 @@ public class CharacterMovementModel : MonoBehaviour
     private ItemType m_PickingUpObject = ItemType.None;
 
     private ItemType m_EquippedWeapon = ItemType.None;
+    private ItemType m_EquippedShield = ItemType.None;
 
     private GameObject m_PickupItem;
 
@@ -159,7 +160,18 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void EquipWeapon( ItemType itemType )
     {
-        if( WeaponParent == null )
+        EquipItem( itemType, ItemData.EquipPosition.SwordHand, WeaponParent, ref m_EquippedWeapon );
+    }
+
+    public void EquipShield( ItemType itemType )
+    {
+        EquipItem( itemType, ItemData.EquipPosition.ShieldHand, ShieldParent, ref m_EquippedShield );
+    }
+
+    void EquipItem( ItemType itemType, ItemData.EquipPosition equipPosition, 
+                    Transform itemParent, ref ItemType equippedItemSlot )
+    {
+        if( itemParent == null )
         {
             return;
         }
@@ -171,19 +183,18 @@ public class CharacterMovementModel : MonoBehaviour
             return;
         }
 
-        if( itemData.IsEquipable != ItemData.EquipPosition.SwordHand )
+        if( itemData.IsEquipable != equipPosition )
         {
             return;
         }
 
-        m_EquippedWeapon = itemType;
+        equippedItemSlot = itemType;
 
+        GameObject newItemObject = (GameObject)Instantiate( itemData.Prefab );
 
-        GameObject newSwordObject = (GameObject)Instantiate( itemData.Prefab );
-
-        newSwordObject.transform.parent = WeaponParent;
-        newSwordObject.transform.localPosition = Vector2.zero;
-        newSwordObject.transform.localRotation = Quaternion.identity;
+        newItemObject.transform.parent = itemParent;
+        newItemObject.transform.localPosition = Vector2.zero;
+        newItemObject.transform.localRotation = Quaternion.identity;
     }
 
     public void ShowItemPickup( ItemType itemType )
@@ -200,6 +211,7 @@ public class CharacterMovementModel : MonoBehaviour
             return;
         }
 
+        SetDirection( new Vector2( 0, -1 ) );
         SetFrozen( true, true );
 
         m_PickingUpObject = itemType;
@@ -213,6 +225,11 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void PushCharacter( Vector2 pushDirection, float time )
     {
+        if( m_IsAttacking == true )
+        {
+            GetComponentInChildren<CharacterAnimationListener>().OnAttackFinished();
+        }
+
         m_PushDirection = pushDirection;
         m_PushTime = time;
     }
@@ -220,6 +237,16 @@ public class CharacterMovementModel : MonoBehaviour
     public ItemType GetItemThatIsBeingPickedUp()
     {
         return m_PickingUpObject;
+    }
+
+    public ItemType GetEquippedShield()
+    {
+        return m_EquippedShield;
+    }
+
+    public ItemType GetEquippedWeapon()
+    {
+        return m_EquippedWeapon;
     }
 
     public bool CanAttack()
@@ -230,6 +257,11 @@ public class CharacterMovementModel : MonoBehaviour
         }
 
         if( m_EquippedWeapon == ItemType.None )
+        {
+            return false;
+        }
+
+        if( IsBeingPushed() == true )
         {
             return false;
         }

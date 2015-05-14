@@ -5,6 +5,7 @@ public class CharacterBatControl : CharacterBaseControl
 {
     public float PushStrength;
     public float PushTime;
+    public AttackableEnemy AttackableEnemy;
 
     GameObject m_CharacterInRange;
 
@@ -21,6 +22,11 @@ public class CharacterBatControl : CharacterBaseControl
         {
             direction = m_CharacterInRange.transform.position - transform.position;
             direction.Normalize();
+        }
+
+        if( AttackableEnemy != null && AttackableEnemy.GetHealth() <= 0 )
+        {
+            direction = Vector2.zero;
         }
 
         SetDirection( direction );

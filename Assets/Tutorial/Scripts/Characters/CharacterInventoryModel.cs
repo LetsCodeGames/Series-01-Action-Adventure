@@ -13,6 +13,16 @@ public class CharacterInventoryModel : MonoBehaviour
         m_MovementModel = GetComponent<CharacterMovementModel>();
     }
 
+    public int GetItemCount( ItemType itemType )
+    {
+        if( m_Items.ContainsKey( itemType ) == false )
+        {
+            return 0;
+        }
+
+        return m_Items[ itemType ];
+    }
+
     public void AddItem( ItemType itemType )
     {
         AddItem( itemType, 1 );
@@ -43,6 +53,10 @@ public class CharacterInventoryModel : MonoBehaviour
                 if( itemData.IsEquipable == ItemData.EquipPosition.SwordHand )
                 {
                     m_MovementModel.EquipWeapon( itemType );
+                }
+                else if( itemData.IsEquipable == ItemData.EquipPosition.ShieldHand )
+                {
+                    m_MovementModel.EquipShield( itemType );
                 }
             }
         }

@@ -3,8 +3,17 @@ using System.Collections;
 
 public class CharacterMovementView : MonoBehaviour
 {
+    public enum ShieldDirection
+    {
+        Front,
+        Right,
+        Left,
+        Back,
+        FrontHalf,
+        BackHalf,
+    }
+
     public Animator Animator;
-    public Transform WeaponParent;
 
     private CharacterMovementModel m_MovementModel;
 
@@ -21,7 +30,7 @@ public class CharacterMovementView : MonoBehaviour
 
     void Start()
     {
-        SetWeaponActive( false );
+        SetItemActive( m_MovementModel.WeaponParent, false );
     }
 
     public void Update() 
@@ -29,6 +38,12 @@ public class CharacterMovementView : MonoBehaviour
         UpdateDirection();   
         UpdatePickingUpAnimation();
         UpdateHit();
+        UpdateShield();
+    }
+
+    void UpdateShield()
+    {
+        Animator.SetBool( "HasShield", m_MovementModel.GetEquippedShield() != ItemType.None );
     }
 
     void UpdatePickingUpAnimation()
@@ -71,8 +86,11 @@ public class CharacterMovementView : MonoBehaviour
 
         if( direction != Vector3.zero )
         {
-            Animator.SetFloat( "DirectionX", direction.x );
-            Animator.SetFloat( "DirectionY", direction.y );
+            if( direction.x != 1 || direction.y != 1 )
+            {
+                Animator.SetFloat( "DirectionX", direction.x );
+                Animator.SetFloat( "DirectionY", direction.y );
+            }
         }
 
         Animator.SetBool( "IsMoving", m_MovementModel.IsMoving() );
@@ -95,22 +113,66 @@ public class CharacterMovementView : MonoBehaviour
 
     public void ShowWeapon()
     {
-        SetWeaponActive( true );
+        SetItemActive( m_MovementModel.WeaponParent, true );
     }
 
     public void HideWeapon()
     {
-        SetWeaponActive( false );
+        SetItemActive( m_MovementModel.WeaponParent, false );
     }
 
     public void SetSortingOrderOfWeapon( int sortingOrder )
     {
-        if( WeaponParent == null )
+        SetSortingOrderOfItem( m_MovementModel.WeaponParent, sortingOrder );
+    }
+
+    public void ShowShield()
+    {
+        SetItemActive( m_MovementModel.ShieldParent, true );
+    }
+
+    public void HideShield()
+    {
+        SetItemActive( m_MovementModel.ShieldParent, true );
+    }
+
+    public void SetSortingOrderOfShield( int sortingOrder )
+    {
+        SetSortingOrderOfItem( m_MovementModel.ShieldParent, sortingOrder );
+    }
+
+    public void ForceShieldDirection( ShieldDirection direction )
+    {
+        ArmorShieldView shield = m_MovementModel.ShieldParent.GetComponentInChildren<ArmorShieldView>();
+
+        if( shield == null )
         {
             return;
         }
 
-        SpriteRenderer[] spriteRenderers = WeaponParent.GetComponentsInChildren<SpriteRenderer>();
+        shield.ForceShieldDirection( direction );
+    }
+
+    public void ReleaseShieldDirection()
+    {
+        ArmorShieldView shield = m_MovementModel.ShieldParent.GetComponentInChildren<ArmorShieldView>();
+
+        if( shield == null )
+        {
+            return;
+        }
+
+        shield.ReleaseShieldDirection();
+    }
+
+    void SetSortingOrderOfItem( Transform itemParent, int sortingOrder )
+    {
+        if( itemParent == null )
+        {
+            return;
+        }
+
+        SpriteRenderer[] spriteRenderers = itemParent.GetComponentsInChildren<SpriteRenderer>();
 
         foreach( SpriteRenderer spriteRenderer in spriteRenderers )
         {
@@ -118,17 +180,13 @@ public class CharacterMovementView : MonoBehaviour
         }
     }
 
-    void SetWeaponActive( bool doActivate )
+    void SetItemActive( Transform itemParent, bool doActivate )
     {
-        if( WeaponParent == null )
+        if( itemParent == null )
         {
             return;
         }
 
-        WeaponParent.gameObject.SetActive( doActivate );
-        /*for( int i = 0; i < WeaponParent.childCount; ++i )
-        {
-            WeaponParent.GetChild( i ).gameObject.GetComponentInChildren<Renderer>().enabled = doActivate;
-        }*/
+        itemParent.gameObject.SetActive( doActivate );
     }
 }

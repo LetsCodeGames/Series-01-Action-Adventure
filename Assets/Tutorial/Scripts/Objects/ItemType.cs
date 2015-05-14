@@ -7,4 +7,5 @@
 
     SmallKey = 300,
     BigKey,
+    Ruby,
 }
