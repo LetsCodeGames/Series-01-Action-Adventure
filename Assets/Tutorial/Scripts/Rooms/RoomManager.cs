@@ -113,7 +113,13 @@ public class RoomManager : MonoBehaviour
 
     string GetRandomRegularRoomName()
     {
-        string[] possibleRooms = new string[] { "Empty", "Regular00", "Regular01" };
+        string[] possibleRooms = new string[] { 
+            "Empty", 
+            "Regular00", 
+            "Regular01", 
+            "Regular02", 
+            "Regular03", 
+            "Regular04" };
 
         return possibleRooms[ Random.Range( 0, possibleRooms.Length ) ];
     }
