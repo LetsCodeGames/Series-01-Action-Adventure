@@ -26,6 +26,8 @@ public class CharacterMovementModel : MonoBehaviour
     private Vector2 m_PushDirection;
     private float m_PushTime;
 
+    private int m_LastSetDirectionFrameCount;
+
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
@@ -130,11 +132,17 @@ public class CharacterMovementModel : MonoBehaviour
             return;
         }
 
+        if( Time.frameCount == m_LastSetDirectionFrameCount )
+        {
+            return;
+        }
+
         m_MovementDirection = new Vector3( direction.x, direction.y, 0 );
 
         if( direction != Vector2.zero )
         {
             m_FacingDirection = m_MovementDirection;
+            m_LastSetDirectionFrameCount = Time.frameCount;
         }
     }
 
