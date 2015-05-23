@@ -28,6 +28,7 @@ public class CharacterMovementModel : MonoBehaviour
 
     private int m_LastSetDirectionFrameCount;
 
+	private float m_LastFreezeTime;
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
@@ -87,6 +88,15 @@ public class CharacterMovementModel : MonoBehaviour
         return m_IsFrozen;
     }
 
+	float GetTimeSinceFrozen()
+	{
+		if (IsFrozen () == false) {
+			return 0f;
+		}
+
+		return Time.realtimeSinceStartup - m_LastFreezeTime;
+	}
+
     public void SetFrozen( bool isFrozen, bool affectGameTime )
     {
         m_IsFrozen = isFrozen;
@@ -95,6 +105,7 @@ public class CharacterMovementModel : MonoBehaviour
         {
             if( isFrozen == true )
             {
+				m_LastFreezeTime = Time.realtimeSinceStartup;
                 StartCoroutine( FreezeTimeRoutine() );
             }
             else
@@ -113,13 +124,17 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void SetDirection( Vector2 direction )
     {
-        if( direction != Vector2.zero &&
-            GetItemThatIsBeingPickedUp() != ItemType.None )
-        {
-            m_PickingUpObject = ItemType.None;
-            SetFrozen( false, true );
-            Destroy( m_PickupItem );
-        }
+		if (m_IsFrozen == true) 
+		{
+			if (direction != Vector2.zero &&
+				GetItemThatIsBeingPickedUp () != ItemType.None &&
+			    GetTimeSinceFrozen() > 0.5f ) 
+			{
+				m_PickingUpObject = ItemType.None;
+				SetFrozen (false, true);
+				Destroy (m_PickupItem);
+			}
+		}
 
         if( m_IsFrozen == true || m_IsAttacking == true )
         {

@@ -17,7 +17,16 @@ public class CharacterGamepadControl : CharacterBaseControl
 
     void UpdateAttack()
     {
-        if( Input.GetButtonDown( "Attack" ) )
+		/*for (int i = 0; i < 21; ++i) {
+			Debug.Log ("Button " + i + ": " + Input.GetKey( KeyCode.JoystickButton0 + i ) );
+		}*/
+
+		if (Input.GetKeyDown (KeyCode.JoystickButton10)) {
+			Time.timeScale = 1;
+			Application.LoadLevel ("Game");
+		}
+
+        if( Input.GetButtonDown( "Attack" ) || Input.GetKeyDown( KeyCode.JoystickButton16 ) )
         {
             OnAttackPressed();
         }
@@ -25,7 +34,7 @@ public class CharacterGamepadControl : CharacterBaseControl
 
     void UpdateAction()
     {
-        if( Input.GetButtonDown( "Interact" ) )
+		if( Input.GetButtonDown( "Interact" ) || Input.GetKeyDown( KeyCode.JoystickButton17 ) )
         {
             OnActionPressed();
         }
