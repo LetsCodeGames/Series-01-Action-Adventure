@@ -126,6 +126,11 @@ public class CharacterMovementView : MonoBehaviour
         SetSortingOrderOfItem( m_MovementModel.WeaponParent, sortingOrder );
     }
 
+    public void SetSortingOrderOfPickupItem( int sortingOrder )
+    {
+        SetSortingOrderOfItem( m_MovementModel.PickupItemParent, sortingOrder );
+    }
+
     public void ShowShield()
     {
         SetItemActive( m_MovementModel.ShieldParent, true );

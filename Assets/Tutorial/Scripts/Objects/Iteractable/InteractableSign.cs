@@ -9,12 +9,12 @@ public class InteractableSign : InteractableBase
     {
         if( DialogBox.IsVisible() == true )
         {
-            character.Movement.SetFrozen( false, true );
+            character.Movement.SetFrozen( false, false, true );
             DialogBox.Hide();
         }
         else
         {
-            character.Movement.SetFrozen( true, true );
+            character.Movement.SetFrozen( true, true, true );
             DialogBox.Show( Text );
         }
         

@@ -8,6 +8,7 @@ public class CharacterInteractionModel : MonoBehaviour
     private Character m_Character;
     private Collider2D m_Collider;
     private CharacterMovementModel m_MovementModel;
+    private InteractablePickup m_PickedUpObject;
 
     void Awake()
     {
@@ -16,13 +17,14 @@ public class CharacterInteractionModel : MonoBehaviour
         m_MovementModel = GetComponent<CharacterMovementModel>();
     }
 
-    void Update() 
-    {
-        
-    }
-
     public void OnInteract()
     {
+        if( IsCarryingObject() == true )
+        {
+            ThrowCarryingObject();
+            return;
+        }
+
         InteractableBase usableInteractable = FindUsableInteractable();
 
         if( usableInteractable == null )
@@ -68,5 +70,47 @@ public class CharacterInteractionModel : MonoBehaviour
         }
 
         return closestInteractable;
+    }
+
+    public void PickupObject( InteractablePickup pickupObject )
+    {
+        m_PickedUpObject = pickupObject;
+
+        m_PickedUpObject.transform.parent = m_MovementModel.PickupItemParent;
+        m_PickedUpObject.transform.localPosition = Vector3.zero;
+
+        m_MovementModel.SetFrozen( true, false, false );
+        m_MovementModel.SetIsAbleToAttack( false );
+
+        Helper.SetSortingLayerForAllRenderers( pickupObject.transform, "Characters" );
+
+        Collider2D pickupObjectCollider = pickupObject.GetComponent<Collider2D>();
+
+        if( pickupObjectCollider != null )
+        {
+            pickupObjectCollider.enabled = false;
+        }
+    }
+
+    public void ThrowCarryingObject()
+    {
+        Collider2D pickupObjectCollider = m_PickedUpObject.GetComponent<Collider2D>();
+
+        if( pickupObjectCollider != null )
+        {
+            pickupObjectCollider.enabled = true;
+            Physics2D.IgnoreCollision( m_Collider, pickupObjectCollider );
+        }
+
+        m_PickedUpObject.Throw( m_Character );
+        m_PickedUpObject = null;
+
+        m_MovementModel.SetFrozen( false, false, false );
+        m_MovementModel.SetIsAbleToAttack( true );
+    }
+
+    public bool IsCarryingObject()
+    {
+        return m_PickedUpObject != null;
     }
 }

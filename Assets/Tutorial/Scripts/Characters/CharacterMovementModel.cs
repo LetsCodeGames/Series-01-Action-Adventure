@@ -15,6 +15,7 @@ public class CharacterMovementModel : MonoBehaviour
     private Rigidbody2D m_Body;
 
     private bool m_IsFrozen;
+    private bool m_IsDirectionFrozen;
     private bool m_IsAttacking;
     private ItemType m_PickingUpObject = ItemType.None;
 
@@ -28,7 +29,10 @@ public class CharacterMovementModel : MonoBehaviour
 
     private int m_LastSetDirectionFrameCount;
 
-	private float m_LastFreezeTime;
+    private float m_LastFreezeTime;
+
+    private bool m_IsAbleToAttack = true;
+
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
@@ -88,24 +92,25 @@ public class CharacterMovementModel : MonoBehaviour
         return m_IsFrozen;
     }
 
-	float GetTimeSinceFrozen()
-	{
-		if (IsFrozen () == false) {
-			return 0f;
-		}
+    float GetTimeSinceFrozen()
+    {
+        if (IsFrozen () == false) {
+            return 0f;
+        }
 
-		return Time.realtimeSinceStartup - m_LastFreezeTime;
-	}
+        return Time.realtimeSinceStartup - m_LastFreezeTime;
+    }
 
-    public void SetFrozen( bool isFrozen, bool affectGameTime )
+    public void SetFrozen( bool isFrozen, bool isDirectionFrozen, bool affectGameTime )
     {
         m_IsFrozen = isFrozen;
+        m_IsDirectionFrozen = isDirectionFrozen;
 
         if( affectGameTime == true )
         {
             if( isFrozen == true )
             {
-				m_LastFreezeTime = Time.realtimeSinceStartup;
+                m_LastFreezeTime = Time.realtimeSinceStartup;
                 StartCoroutine( FreezeTimeRoutine() );
             }
             else
@@ -124,19 +129,19 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void SetDirection( Vector2 direction )
     {
-		if (m_IsFrozen == true) 
-		{
-			if (direction != Vector2.zero &&
-				GetItemThatIsBeingPickedUp () != ItemType.None &&
-			    GetTimeSinceFrozen() > 0.5f ) 
-			{
-				m_PickingUpObject = ItemType.None;
-				SetFrozen (false, true);
-				Destroy (m_PickupItem);
-			}
-		}
+        if (m_IsFrozen == true) 
+        {
+            if (direction != Vector2.zero &&
+                GetItemThatIsBeingPickedUp () != ItemType.None &&
+                GetTimeSinceFrozen() > 0.5f ) 
+            {
+                m_PickingUpObject = ItemType.None;
+                SetFrozen (false, false, true);
+                Destroy (m_PickupItem);
+            }
+        }
 
-        if( m_IsFrozen == true || m_IsAttacking == true )
+        if( m_IsDirectionFrozen == true || m_IsAttacking == true )
         {
             return;
         }
@@ -235,7 +240,7 @@ public class CharacterMovementModel : MonoBehaviour
         }
 
         SetDirection( new Vector2( 0, -1 ) );
-        SetFrozen( true, true );
+        SetFrozen( true, true, true );
 
         m_PickingUpObject = itemType;
 
@@ -289,7 +294,17 @@ public class CharacterMovementModel : MonoBehaviour
             return false;
         }
 
+        if( m_IsAbleToAttack == false )
+        {
+            return false;
+        }
+
         return true;
+    }
+
+    public void SetIsAbleToAttack( bool isAbleToAttack )
+    {
+        m_IsAbleToAttack = isAbleToAttack;
     }
 
     public void DoAttack()

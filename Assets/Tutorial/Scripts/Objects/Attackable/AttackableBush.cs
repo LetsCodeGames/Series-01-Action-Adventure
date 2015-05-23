@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AttackableBush : AttackableBase
 {
-    public Sprite DestroyedSprite;
+    public GameObject DestroyedPrefab;
     public GameObject DestroyEffect;
 
     private SpriteRenderer m_Renderer;
@@ -13,21 +13,43 @@ public class AttackableBush : AttackableBase
         m_Renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public override void OnHit( Collider2D hitCollider, ItemType item )
+    public void CreateDestroyedPrefab()
     {
-        m_Renderer.sprite = DestroyedSprite;
+        GameObject newDestroyedBushObject = (GameObject)Instantiate( DestroyedPrefab, transform.position, transform.rotation );
+        newDestroyedBushObject.transform.parent = transform.parent;
+    }
 
-        if( GetComponent<Collider2D>() != null )
-        {
-            GetComponent<Collider2D>().enabled = false;
-        }
+    public void DestroyBush()
+    {
+        Destroy( gameObject );
 
         if( DestroyEffect != null )
         {
             GameObject destroyEffect = (GameObject)Instantiate( DestroyEffect );
             destroyEffect.transform.position = transform.position;
         }
+    }
 
+    public void DropLoot()
+    {
         BroadcastMessage( "OnLootDrop", SendMessageOptions.DontRequireReceiver );
+    }
+
+    public override void OnHit( Collider2D hitCollider, ItemType item )
+    {
+        DestroyBush();
+        CreateDestroyedPrefab();
+        DropLoot();
+    }
+
+    void OnPickupObject( Character character )
+    {
+        CreateDestroyedPrefab();
+        DropLoot();
+    }
+
+    void OnObjectThrown()
+    {
+        DestroyBush();
     }
 }
