@@ -25,9 +25,21 @@ public class GameCamera : MonoBehaviour
             return;
         }
 
+        Vector3 targetPosition = GetCameraTargetPosition();
+
+        transform.position = Vector3.MoveTowards( transform.position, targetPosition, Time.deltaTime * MovementSpeedOnRoomChange );
+    }
+
+    Vector3 GetCameraTargetPosition()
+    {
         Vector3 targetPosition = CurrentRoom.GetRoomCenter();
         targetPosition.z = transform.position.z;
 
-        transform.position = Vector3.MoveTowards( transform.position, targetPosition, Time.deltaTime * MovementSpeedOnRoomChange );
+        return targetPosition;
+    }
+
+    public bool IsSwitchingScene()
+    {
+        return transform.position.Equals( GetCameraTargetPosition() ) == false;
     }
 }

@@ -67,6 +67,12 @@ public class CharacterMovementModel : MonoBehaviour
             return;
         }
 
+        if( GameCamera.Instance != null && GameCamera.Instance.IsSwitchingScene() == true )
+        {
+            m_Body.velocity = Vector2.zero;
+            return;
+        }
+
         if( m_MovementDirection != Vector3.zero )
         {
             m_MovementDirection.Normalize();
