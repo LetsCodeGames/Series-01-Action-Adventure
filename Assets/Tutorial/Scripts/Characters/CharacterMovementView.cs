@@ -82,7 +82,7 @@ public class CharacterMovementView : MonoBehaviour
 
     void UpdateDirection()
     {
-        Vector3 direction = m_MovementModel.GetDirection();
+        Vector3 direction = m_MovementModel.GetFacingDirection();
 
         if( direction != Vector3.zero )
         {

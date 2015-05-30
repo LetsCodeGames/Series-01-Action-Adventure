@@ -161,7 +161,25 @@ public class CharacterMovementModel : MonoBehaviour
 
         if( direction != Vector2.zero )
         {
-            m_FacingDirection = m_MovementDirection;
+            Vector3 facingDirection = m_MovementDirection;
+
+            if( facingDirection.x != 0 && facingDirection.y != 0 )
+            {
+                if( facingDirection.x == m_FacingDirection.x )
+                {
+                    facingDirection.y = 0;
+                }
+                else if( facingDirection.y == m_FacingDirection.y )
+                {
+                    facingDirection.x = 0;
+                }
+                else
+                {
+                    facingDirection.x = 0;
+                }
+            }
+
+            m_FacingDirection = facingDirection;
             m_LastSetDirectionFrameCount = Time.frameCount;
         }
     }
