@@ -51,7 +51,8 @@ public class CharacterTouchControl : CharacterBaseControl
 
         if( viewportPosition.x > 0.5f )
         {
-            if( m_InteractionModel.IsCarryingObject() == true || m_InteractionModel.FindUsableInteractable() != null )
+            if( m_InteractionModel.IsCarryingObject() == true || 
+                m_InteractionModel.FindUsableInteractable() != null )
             {
                 OnActionPressed();
             }

@@ -12,6 +12,7 @@ public class CharacterMovementModel : MonoBehaviour
     private Vector3 m_MovementDirection;
     private Vector3 m_FacingDirection;
 
+    private Character m_Character;
     private Rigidbody2D m_Body;
 
     private bool m_IsFrozen;
@@ -41,6 +42,7 @@ public class CharacterMovementModel : MonoBehaviour
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
+        m_Character = GetComponent<Character>();
     }
 
     void Update()
@@ -257,27 +259,42 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void EquipShield( ItemType itemType )
     {
-        EquipItem( itemType, ItemData.EquipPosition.ShieldHand, ShieldParent, ref m_EquippedShield );
+        GameObject newShieldObject = EquipItem( itemType, ItemData.EquipPosition.ShieldHand, ShieldParent, ref m_EquippedShield );
+
+        if( newShieldObject == null )
+        {
+            return;
+        }
+
+        ArmorModel armorModel = newShieldObject.GetComponent<ArmorModel>();
+
+        if( armorModel == null )
+        {
+            Debug.LogWarning( "No ArmorModel for this shield" );
+            return;
+        }
+
+        m_Character.Health.RegisterArmor( armorModel );
     }
 
-    void EquipItem( ItemType itemType, ItemData.EquipPosition equipPosition, 
+    GameObject EquipItem( ItemType itemType, ItemData.EquipPosition equipPosition, 
                     Transform itemParent, ref ItemType equippedItemSlot )
     {
         if( itemParent == null )
         {
-            return;
+            return null;
         }
 
         ItemData itemData = Database.Item.FindItem( itemType );
 
         if( itemData == null )
         {
-            return;
+            return null;
         }
 
         if( itemData.IsEquipable != equipPosition )
         {
-            return;
+            return null;
         }
 
         equippedItemSlot = itemType;
@@ -287,6 +304,8 @@ public class CharacterMovementModel : MonoBehaviour
         newItemObject.transform.parent = itemParent;
         newItemObject.transform.localPosition = Vector2.zero;
         newItemObject.transform.localRotation = Quaternion.identity;
+
+        return newItemObject;
     }
 
     public void ShowItemPickup( ItemType itemType )

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AttackableEnemy : AttackableBase 
 {
-    public int MaxHealth;
+    public float MaxHealth;
     public GameObject DestroyObjectOnDeath;
     public float DestroyDelayOnDeath;
     public CharacterMovementModel MovementModel;
@@ -11,21 +11,25 @@ public class AttackableEnemy : AttackableBase
     public float HitPushDuration;
     public GameObject DeathFX;
     public float DelayDeathFX;
-    int m_Health;
+
+    float m_Health;
 
     void Awake()
     {
         m_Health = MaxHealth;
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return m_Health;
     }
 
     public override void OnHit( Collider2D hitCollider, ItemType item )
     {
-        m_Health--;
+        float damage = 10;
+
+        m_Health -= damage;
+        UIDamageNumbers.Instance.ShowDamageNumber( damage, transform.position );
 
         if( MovementModel != null )
         {

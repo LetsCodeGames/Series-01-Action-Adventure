@@ -6,6 +6,7 @@ public class CharacterBatControl : CharacterBaseControl
     public float PushStrength;
     public float PushTime;
     public AttackableEnemy AttackableEnemy;
+    public float AttackDamage;
 
     GameObject m_CharacterInRange;
 
@@ -37,12 +38,14 @@ public class CharacterBatControl : CharacterBaseControl
         m_CharacterInRange = characterInRange;
     }
 
-    public void OnHitCharacter( GameObject character )
+    public void OnHitCharacter( Character character )
     {
         Vector2 direction = character.transform.position - transform.position;
         direction.Normalize();
 
         m_CharacterInRange = null;
-        character.GetComponent<CharacterMovementModel>().PushCharacter( direction * PushStrength, PushTime );
+        character.Movement.PushCharacter( direction * PushStrength, PushTime );
+
+        character.Health.DealDamage( AttackDamage );
     }
 }

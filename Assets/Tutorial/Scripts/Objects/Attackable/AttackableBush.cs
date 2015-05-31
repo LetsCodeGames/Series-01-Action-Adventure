@@ -6,13 +6,6 @@ public class AttackableBush : AttackableBase
     public GameObject DestroyedPrefab;
     public GameObject DestroyEffect;
 
-    private SpriteRenderer m_Renderer;
-
-    void Awake()
-    {
-        m_Renderer = GetComponentInChildren<SpriteRenderer>();
-    }
-
     public void CreateDestroyedPrefab()
     {
         GameObject newDestroyedBushObject = (GameObject)Instantiate( DestroyedPrefab, transform.position, transform.rotation );

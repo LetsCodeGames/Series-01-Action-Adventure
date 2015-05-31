@@ -12,9 +12,9 @@ public class EnemyCharacterCollision : MonoBehaviour
 
     void OnTriggerEnter2D( Collider2D collider )
     {
-        if( collider.tag == "Player" )
+        if( collider.CompareTag( "Player" ) )
         {
-            m_Control.OnHitCharacter( collider.gameObject );
+            m_Control.OnHitCharacter( collider.gameObject.GetComponent<Character>() );
         }
     }
 }
