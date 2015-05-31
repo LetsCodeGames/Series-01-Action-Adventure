@@ -35,13 +35,18 @@ public class CharacterInteractionModel : MonoBehaviour
         usableInteractable.OnInteract( m_Character );
     }
 
-    InteractableBase FindUsableInteractable()
+    public Collider2D[] GetCloseColliders()
     {
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
 
-        Collider2D[] closeColliders = Physics2D.OverlapAreaAll( 
+        return Physics2D.OverlapAreaAll(
             (Vector2)transform.position + boxCollider.offset + boxCollider.size * 0.6f,
             (Vector2)transform.position + boxCollider.offset - boxCollider.size * 0.6f );
+    }
+
+    public InteractableBase FindUsableInteractable()
+    {
+        Collider2D[] closeColliders = GetCloseColliders();
 
         InteractableBase closestInteractable = null;
         float angleToClosestInteractble = Mathf.Infinity;
@@ -79,7 +84,7 @@ public class CharacterInteractionModel : MonoBehaviour
         m_PickedUpObject.transform.parent = m_MovementModel.PickupItemParent;
         m_PickedUpObject.transform.localPosition = Vector3.zero;
 
-        m_MovementModel.SetFrozen( true, false, false );
+        //m_MovementModel.SetFrozen( true, false, false );
         m_MovementModel.SetIsAbleToAttack( false );
 
         Helper.SetSortingLayerForAllRenderers( pickupObject.transform, "Characters" );
@@ -105,7 +110,7 @@ public class CharacterInteractionModel : MonoBehaviour
         m_PickedUpObject.Throw( m_Character );
         m_PickedUpObject = null;
 
-        m_MovementModel.SetFrozen( false, false, false );
+        //m_MovementModel.SetFrozen( false, false, false );
         m_MovementModel.SetIsAbleToAttack( true );
     }
 

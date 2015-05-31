@@ -32,6 +32,11 @@ public class GameCamera : MonoBehaviour
 
     Vector3 GetCameraTargetPosition()
     {
+        if( CurrentRoom == null )
+        {
+            return Vector3.zero;
+        }
+
         Vector3 targetPosition = CurrentRoom.GetRoomCenter();
         targetPosition.z = transform.position.z;
 

@@ -52,7 +52,7 @@ public class RoomManager : MonoBehaviour
         m_CurrentLoadRoomData = m_LoadRoomQueue.Dequeue();
         m_IsLoadingRoom = true;
 
-        Debug.Log( "Loading new room: " + m_CurrentLoadRoomData.Name + " at " + m_CurrentLoadRoomData.X + ", " + m_CurrentLoadRoomData.Y );
+        //Debug.Log( "Loading new room: " + m_CurrentLoadRoomData.Name + " at " + m_CurrentLoadRoomData.X + ", " + m_CurrentLoadRoomData.Y );
 
         StartCoroutine( LoadRoomRoutine( m_CurrentLoadRoomData ) );
     }
@@ -80,7 +80,7 @@ public class RoomManager : MonoBehaviour
 
         while( loadLevel.isDone == false )
         {
-            Debug.Log( "Loading " + levelName + ": " + Mathf.Round( loadLevel.progress * 100 ) + "%" );
+            //Debug.Log( "Loading " + levelName + ": " + Mathf.Round( loadLevel.progress * 100 ) + "%" );
             yield return null;
         }   
     }
@@ -119,7 +119,9 @@ public class RoomManager : MonoBehaviour
             "Regular01", 
             "Regular02", 
             "Regular03", 
-            "Regular04" };
+            "Regular04",
+            "Puzzle01", 
+        };
 
         return possibleRooms[ Random.Range( 0, possibleRooms.Length ) ];
     }

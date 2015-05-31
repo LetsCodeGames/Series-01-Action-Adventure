@@ -3,15 +3,38 @@ using System.Collections;
 
 public class CharacterBaseControl : MonoBehaviour
 {
-    private CharacterMovementModel m_MovementModel;
-    private CharacterInteractionModel m_InteractionModel;
-    private CharacterMovementView m_MovementView;
+    protected CharacterMovementModel m_MovementModel;
+    protected CharacterInteractionModel m_InteractionModel;
+    protected CharacterMovementView m_MovementView;
 
     void Awake()
     {
         m_MovementModel = GetComponent<CharacterMovementModel>();
         m_MovementView = GetComponent<CharacterMovementView>();
         m_InteractionModel = GetComponent<CharacterInteractionModel>();
+    }
+
+    protected Vector2 GetDiagonalizedDirection( Vector2 direction, float threshold )
+    {
+        if( Mathf.Abs( direction.x ) < threshold )
+        {
+            direction.x = 0;
+        }
+        else
+        {
+            direction.x = Mathf.Sign( direction.x );
+        }
+
+        if( Mathf.Abs( direction.y ) < threshold )
+        {
+            direction.y = 0;
+        }
+        else
+        {
+            direction.y = Mathf.Sign( direction.y );
+        }
+
+        return direction;
     }
 
     protected void SetDirection( Vector2 direction )

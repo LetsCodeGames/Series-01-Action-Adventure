@@ -33,6 +33,11 @@ public class CharacterMovementModel : MonoBehaviour
 
     private bool m_IsAbleToAttack = true;
 
+    Vector2 m_ReceivedDirection;
+
+    private bool m_IsOverrideSpeed;
+    private float m_OverrideSpeed;
+
     void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
@@ -41,6 +46,8 @@ public class CharacterMovementModel : MonoBehaviour
     void Update()
     {
         UpdatePushTime();
+        UpdateDirection();
+        ResetReceivedDirection();
     }
 
     void FixedUpdate()
@@ -52,6 +59,73 @@ public class CharacterMovementModel : MonoBehaviour
     {
         
 
+    }
+
+    void ResetReceivedDirection()
+    {
+        m_ReceivedDirection = Vector2.zero;
+    }
+
+    void UpdateDirection()
+    {
+        if( m_IsFrozen == true )
+        {
+            if( m_ReceivedDirection != Vector2.zero &&
+                GetItemThatIsBeingPickedUp() != ItemType.None &&
+                GetTimeSinceFrozen() > 0.5f )
+            {
+                m_PickingUpObject = ItemType.None;
+                SetFrozen( false, false, true );
+                Destroy( m_PickupItem );
+            }
+        }
+
+        if( m_IsDirectionFrozen == true && m_ReceivedDirection != Vector2.zero )
+        {
+            return;
+        }
+
+        if( m_IsAttacking == true )
+        {
+            return;
+        }
+
+        if( IsBeingPushed() == true )
+        {
+            m_MovementDirection = m_PushDirection;
+            return;
+        }
+
+        if( Time.frameCount == m_LastSetDirectionFrameCount )
+        {
+            return;
+        }
+
+        m_MovementDirection = new Vector3( m_ReceivedDirection.x, m_ReceivedDirection.y, 0 );
+
+        if( m_ReceivedDirection != Vector2.zero )
+        {
+            Vector3 facingDirection = m_MovementDirection;
+
+            if( facingDirection.x != 0 && facingDirection.y != 0 )
+            {
+                if( facingDirection.x == m_FacingDirection.x )
+                {
+                    facingDirection.y = 0;
+                }
+                else if( facingDirection.y == m_FacingDirection.y )
+                {
+                    facingDirection.x = 0;
+                }
+                else
+                {
+                    facingDirection.x = 0;
+                }
+            }
+
+            m_FacingDirection = facingDirection;
+            m_LastSetDirectionFrameCount = Time.frameCount;
+        }
     }
 
     void UpdatePushTime()
@@ -84,8 +158,21 @@ public class CharacterMovementModel : MonoBehaviour
         }
         else
         {
-            m_Body.velocity = m_MovementDirection * Speed;
+            float speed = Speed;
+
+            if( m_IsOverrideSpeed == true )
+            {
+                speed = m_OverrideSpeed;
+            }
+
+            m_Body.velocity = m_MovementDirection * speed;
         }
+    }
+
+    public void SetOverrideSpeedEnabled( bool enabled, float speed = 0f )
+    {
+        m_IsOverrideSpeed = enabled;
+        m_OverrideSpeed = speed;
     }
 
     public bool IsBeingPushed()
@@ -135,59 +222,12 @@ public class CharacterMovementModel : MonoBehaviour
 
     public void SetDirection( Vector2 direction )
     {
-        if (m_IsFrozen == true) 
-        {
-            if (direction != Vector2.zero &&
-                GetItemThatIsBeingPickedUp () != ItemType.None &&
-                GetTimeSinceFrozen() > 0.5f ) 
-            {
-                m_PickingUpObject = ItemType.None;
-                SetFrozen (false, false, true);
-                Destroy (m_PickupItem);
-            }
-        }
-
-        if( m_IsDirectionFrozen == true || m_IsAttacking == true )
+        if( direction == Vector2.zero )
         {
             return;
         }
 
-        if( IsBeingPushed() == true )
-        {
-            m_MovementDirection = m_PushDirection;
-            return;
-        }
-
-        if( Time.frameCount == m_LastSetDirectionFrameCount )
-        {
-            return;
-        }
-
-        m_MovementDirection = new Vector3( direction.x, direction.y, 0 );
-
-        if( direction != Vector2.zero )
-        {
-            Vector3 facingDirection = m_MovementDirection;
-
-            if( facingDirection.x != 0 && facingDirection.y != 0 )
-            {
-                if( facingDirection.x == m_FacingDirection.x )
-                {
-                    facingDirection.y = 0;
-                }
-                else if( facingDirection.y == m_FacingDirection.y )
-                {
-                    facingDirection.x = 0;
-                }
-                else
-                {
-                    facingDirection.x = 0;
-                }
-            }
-
-            m_FacingDirection = facingDirection;
-            m_LastSetDirectionFrameCount = Time.frameCount;
-        }
+        m_ReceivedDirection = direction;
     }
 
     public Vector3 GetDirection()
@@ -273,6 +313,13 @@ public class CharacterMovementModel : MonoBehaviour
         m_PickupItem.transform.parent = PickupItemParent;
         m_PickupItem.transform.localPosition = Vector2.zero;
         m_PickupItem.transform.localRotation = Quaternion.identity;
+
+        MonoBehaviour[] components = m_PickupItem.GetComponentsInChildren<MonoBehaviour>();
+
+        foreach( MonoBehaviour component in components )
+        {
+            component.enabled = false;
+        }
     }
 
     public void PushCharacter( Vector2 pushDirection, float time )

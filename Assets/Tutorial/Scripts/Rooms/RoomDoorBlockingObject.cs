@@ -13,6 +13,7 @@ public class RoomDoorBlockingObject : MonoBehaviour
 
         if( randomValue < DestroyProbability ||
             ( roomParent.X == 0 && roomParent.Y == 0 ) ||
+            ( roomParent.X == 0 && roomParent.Y == 1 ) ||
             ( roomParent.X == 0 && roomParent.Y == -1 ) ||
             ( roomParent.X == 1 && roomParent.Y == -1 ) ||
             ( roomParent.X == 1 && roomParent.Y == -2 ) )
