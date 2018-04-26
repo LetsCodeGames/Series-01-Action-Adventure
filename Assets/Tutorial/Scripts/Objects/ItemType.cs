@@ -8,4 +8,5 @@
     SmallKey = 300,
     BigKey,
     Ruby,
+    Bomb,
 }

@@ -11,7 +11,7 @@ public class CharacterKeyboardControl : CharacterBaseControl
     void Update() 
     {
         UpdateDirection();
-        UpdateAction();
+        UpdateActions();
         UpdateAttack();
     }
 
@@ -23,11 +23,16 @@ public class CharacterKeyboardControl : CharacterBaseControl
         }
     }
 
-    void UpdateAction()
+    void UpdateActions()
     {
         if( Input.GetKeyDown( KeyCode.E ) )
         {
             OnActionPressed();
+        }
+
+        if( Input.GetKeyDown( KeyCode.Q ) )
+        {
+            OnPlaceBombPressed();
         }
     }
 

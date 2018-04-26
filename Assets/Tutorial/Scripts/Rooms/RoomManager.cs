@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class RoomData
 {
@@ -76,7 +77,7 @@ public class RoomManager : MonoBehaviour
     {
         string levelName = m_CurrentWorldName + data.Name;
 
-        AsyncOperation loadLevel = Application.LoadLevelAdditiveAsync( levelName );
+        AsyncOperation loadLevel = SceneManager.LoadSceneAsync( levelName, LoadSceneMode.Additive );
 
         while( loadLevel.isDone == false )
         {

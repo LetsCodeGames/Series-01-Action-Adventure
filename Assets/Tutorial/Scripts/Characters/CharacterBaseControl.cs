@@ -3,15 +3,11 @@ using System.Collections;
 
 public class CharacterBaseControl : MonoBehaviour
 {
-    protected CharacterMovementModel m_MovementModel;
-    protected CharacterInteractionModel m_InteractionModel;
-    protected CharacterMovementView m_MovementView;
+    protected Character m_Character;
 
     void Awake()
     {
-        m_MovementModel = GetComponent<CharacterMovementModel>();
-        m_MovementView = GetComponent<CharacterMovementView>();
-        m_InteractionModel = GetComponent<CharacterInteractionModel>();
+        m_Character = GetComponent<Character>();
     }
 
     protected Vector2 GetDiagonalizedDirection( Vector2 direction, float threshold )
@@ -39,37 +35,47 @@ public class CharacterBaseControl : MonoBehaviour
 
     protected void SetDirection( Vector2 direction )
     {
-        if( m_MovementModel == null )
+        if( m_Character.Movement == null )
         {
             return;
         }
 
-        m_MovementModel.SetDirection( direction );
+        m_Character.Movement.SetDirection( direction );
     }
 
     protected void OnActionPressed()
     {
-        if( m_InteractionModel == null )
+        if( m_Character.Interaction == null )
         {
             return;
         }
 
-        m_InteractionModel.OnInteract();
+        m_Character.Interaction.OnInteract();
     }
 
     protected void OnAttackPressed()
     {
-        if( m_MovementModel == null )
+        if( m_Character.Movement == null )
         {
             return;
         }
 
-        if( m_MovementModel.CanAttack() == false )
+        if( m_Character.Movement.CanAttack() == false )
         {
             return;
         }
 
-        m_MovementModel.DoAttack();
-        m_MovementView.DoAttack();
+        m_Character.Movement.DoAttack();
+        m_Character.MovementView.DoAttack();
+    }
+
+    protected void OnPlaceBombPressed()
+    {
+        if( m_Character.Action == null )
+        {
+            return;
+        }
+
+        m_Character.Action.PlaceBomb();
     }
 }

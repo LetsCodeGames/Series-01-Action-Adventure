@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CharacterGamepadControl : CharacterBaseControl 
 {
@@ -23,7 +24,7 @@ public class CharacterGamepadControl : CharacterBaseControl
 
         if (Input.GetKeyDown (KeyCode.JoystickButton10)) {
             Time.timeScale = 1;
-            Application.LoadLevel ("Game");
+            SceneManager.LoadScene( "Game");
         }
 
         if( Input.GetButtonDown( "Attack" ) || Input.GetKeyDown( KeyCode.JoystickButton16 ) )
