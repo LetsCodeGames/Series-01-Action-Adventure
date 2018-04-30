@@ -23,12 +23,12 @@ public class CharacterInventoryModel : MonoBehaviour
         return m_Items[ itemType ];
     }
 
-    public void AddItem( ItemType itemType )
+    public void AddItem( ItemType itemType, PickupType pickupType )
     {
-        AddItem( itemType, 1 );
+        AddItem( itemType, 1, pickupType );
     }
 
-    public void AddItem( ItemType itemType, int amount )
+    public void AddItem( ItemType itemType, int amount, PickupType pickupType )
     {
         if( m_Items.ContainsKey( itemType ) == true )
         {
@@ -45,9 +45,11 @@ public class CharacterInventoryModel : MonoBehaviour
 
             if( itemData != null )
             {
-                if( itemData.Animation != ItemData.PickupAnimation.None )
+                
+
+                if( itemData.GetPickupAnimation( pickupType ) != ItemData.PickupAnimation.None )
                 {
-                    m_MovementModel.ShowItemPickup( itemType );
+                    m_MovementModel.ShowItemPickup( itemType, pickupType );
                 }
 
                 if( itemData.IsEquipable == ItemData.EquipPosition.SwordHand )

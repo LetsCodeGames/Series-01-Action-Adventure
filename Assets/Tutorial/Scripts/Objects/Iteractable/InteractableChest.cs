@@ -22,7 +22,7 @@ public class InteractableChest : InteractableBase
             return;
         }
 
-        character.Inventory.AddItem( ItemInChest, Amount );
+        character.Inventory.AddItem( ItemInChest, Amount, PickupType.FromChest );
         m_Renderer.sprite = OpenChestSprite;
         m_IsOpen = true;
     }

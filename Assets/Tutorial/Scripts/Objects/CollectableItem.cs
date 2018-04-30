@@ -12,7 +12,7 @@ public class CollectableItem : MonoBehaviour
 
         if( inventoryModel != null )
         {
-            inventoryModel.AddItem( ItemType, Amount );
+            inventoryModel.AddItem( ItemType, Amount, PickupType.FromDrop );
             Destroy( gameObject );
         }
     }

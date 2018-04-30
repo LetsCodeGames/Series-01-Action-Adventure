@@ -19,6 +19,7 @@ public class CharacterMovementModel : MonoBehaviour
     private bool m_IsDirectionFrozen;
     private bool m_IsAttacking;
     private ItemType m_PickingUpObject = ItemType.None;
+    private PickupType m_PickingUpObjectType = PickupType.None;
 
     private ItemType m_EquippedWeapon = ItemType.None;
     private ItemType m_EquippedShield = ItemType.None;
@@ -308,7 +309,7 @@ public class CharacterMovementModel : MonoBehaviour
         return newItemObject;
     }
 
-    public void ShowItemPickup( ItemType itemType )
+    public void ShowItemPickup( ItemType itemType, PickupType pickupType )
     {
         if( PickupItemParent == null )
         {
@@ -326,6 +327,7 @@ public class CharacterMovementModel : MonoBehaviour
         SetFrozen( true, true, true );
 
         m_PickingUpObject = itemType;
+        m_PickingUpObjectType = pickupType;
 
         m_PickupItem = (GameObject)Instantiate( itemData.Prefab );
 
@@ -355,6 +357,11 @@ public class CharacterMovementModel : MonoBehaviour
     public ItemType GetItemThatIsBeingPickedUp()
     {
         return m_PickingUpObject;
+    }
+
+    public PickupType GetPickUpType()
+    {
+        return m_PickingUpObjectType;
     }
 
     public ItemType GetEquippedShield()

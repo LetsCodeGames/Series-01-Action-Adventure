@@ -59,7 +59,7 @@ public class CharacterMovementView : MonoBehaviour
             {
                 ItemData itemData = Database.Item.FindItem( pickupItem );
 
-                switch( itemData.Animation )
+                switch( itemData.GetPickupAnimation( m_MovementModel.GetPickUpType() ) )
                 {
                 case ItemData.PickupAnimation.OneHanded:
                     isPickingUpOneHanded = true;

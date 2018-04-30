@@ -10,3 +10,10 @@
     Ruby,
     Bomb,
 }
+
+public enum PickupType
+{
+    None,
+    FromChest,
+    FromDrop,
+}

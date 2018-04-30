@@ -40,5 +40,19 @@ public class ItemData
     public ItemType Type;
     public GameObject Prefab;
     public EquipPosition IsEquipable;
-    public PickupAnimation Animation;
+    public PickupAnimation AnimationForChest;
+    public PickupAnimation AnimationForDrops;
+
+    public PickupAnimation GetPickupAnimation( PickupType pickupType )
+    {
+        switch( pickupType )
+        {
+        case PickupType.FromChest:
+            return AnimationForChest;
+        case PickupType.FromDrop:
+            return AnimationForDrops;
+        }
+
+        return PickupAnimation.None;
+    }
 }

@@ -17,7 +17,7 @@ public class CharacterActionModel : MonoBehaviour
         if( m_Character.Inventory.GetItemCount( ItemType.Bomb ) > 0 )
         {
             Instantiate( BombPrefab, transform.position, Quaternion.identity );
-            m_Character.Inventory.AddItem( ItemType.Bomb, -1 );
+            m_Character.Inventory.AddItem( ItemType.Bomb, -1, PickupType.None );
         }
     }
 }
