@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterKeyboardControl : CharacterBaseControl 
+public class CharacterKeyboardControl : CharacterBaseControl
 {
-    void Start() 
+    void Start()
     {
-        SetDirection( new Vector2( 0, -1 ) );
+        SetDirection(new Vector2(0, -1));
     }
 
-    void Update() 
+    void Update()
     {
         UpdateDirection();
         UpdateActions();
@@ -17,7 +17,7 @@ public class CharacterKeyboardControl : CharacterBaseControl
 
     void UpdateAttack()
     {
-        if( Input.GetKeyDown( KeyCode.Space ) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnAttackPressed();
         }
@@ -25,12 +25,12 @@ public class CharacterKeyboardControl : CharacterBaseControl
 
     void UpdateActions()
     {
-        if( Input.GetKeyDown( KeyCode.E ) )
+        if (Input.GetKeyDown(KeyCode.E))
         {
             OnActionPressed();
         }
 
-        if( Input.GetKeyDown( KeyCode.Q ) )
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             OnPlaceBombPressed();
         }
@@ -40,26 +40,26 @@ public class CharacterKeyboardControl : CharacterBaseControl
     {
         Vector2 newDirection = Vector2.zero;
 
-        if( Input.GetKey( KeyCode.W ) )
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             newDirection.y = 1;
         }
 
-        if( Input.GetKey( KeyCode.S ) )
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             newDirection.y = -1;
         }
 
-        if( Input.GetKey( KeyCode.A ) )
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             newDirection.x = -1;
         }
 
-        if( Input.GetKey( KeyCode.D ) )
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             newDirection.x = 1;
         }
 
-        SetDirection( newDirection );
+        SetDirection(newDirection);
     }
 }
