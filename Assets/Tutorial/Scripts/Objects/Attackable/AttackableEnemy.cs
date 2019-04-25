@@ -31,6 +31,7 @@ public class AttackableEnemy : AttackableBase
 
     public override void OnHit( Collider2D hitCollider, ItemType item )
     {
+        if (attackableCharacter.isDead) return;
         float damage = 10;
 
         m_Health -= damage;
@@ -61,6 +62,7 @@ public class AttackableEnemy : AttackableBase
 
         BroadcastMessage( "OnLootDrop", SendMessageOptions.DontRequireReceiver );
         attackableCharacter.isDead = true;
+        attackableCharacter.transform.localScale = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(3);
         Destroy( DestroyObjectOnDeath );
     }
