@@ -14,6 +14,7 @@ public class CharacterActionModel : MonoBehaviour
 
     public void PlaceBomb()
     {
+        if (m_Character.isDead) return;
         if( m_Character.Inventory.GetItemCount( ItemType.Bomb ) > 0 )
         {
             Instantiate( BombPrefab, transform.position, Quaternion.identity );

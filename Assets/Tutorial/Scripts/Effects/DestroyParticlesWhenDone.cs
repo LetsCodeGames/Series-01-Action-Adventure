@@ -9,7 +9,6 @@ public class DestroyParticlesWhenDone : MonoBehaviour
 	void Awake() 
 	{
 		m_Particles = GetComponent<ParticleSystem> ();
-        SoundFile = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -20,10 +19,4 @@ public class DestroyParticlesWhenDone : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
-
-    public void PlayDeathSound()
-    {
-        if (!SoundFile) return;
-        SoundFile.Play();
-    }
 }

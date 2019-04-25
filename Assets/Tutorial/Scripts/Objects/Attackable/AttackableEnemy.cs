@@ -11,12 +11,17 @@ public class AttackableEnemy : AttackableBase
     public float HitPushDuration;
     public GameObject DeathFX;
     public float DelayDeathFX;
+    Character attackableCharacter;
 
     float m_Health;
+
+    AudioSource deathSound;
 
     void Awake()
     {
         m_Health = MaxHealth;
+        deathSound = GetComponent(typeof(AudioSource)) as AudioSource;
+        attackableCharacter = GetComponentInParent<Character>();
     }
 
     public float GetHealth()
@@ -55,7 +60,8 @@ public class AttackableEnemy : AttackableBase
         yield return new WaitForSeconds( delay );
 
         BroadcastMessage( "OnLootDrop", SendMessageOptions.DontRequireReceiver );
-
+        attackableCharacter.isDead = true;
+        yield return new WaitForSeconds(3);
         Destroy( DestroyObjectOnDeath );
     }
 
@@ -64,5 +70,12 @@ public class AttackableEnemy : AttackableBase
         yield return new WaitForSeconds( delay );
 
         Instantiate( DeathFX, transform.position, Quaternion.identity );
+
+        if (deathSound) {
+            deathSound.Play();
+        }
+        else {
+            Debug.Log("No sound Available!");
+        }
     }
 }
