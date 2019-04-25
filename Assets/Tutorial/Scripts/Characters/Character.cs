@@ -9,4 +9,6 @@ public class Character : MonoBehaviour
     public CharacterInventoryModel Inventory;
     public CharacterHealthModel Health;
     public CharacterActionModel Action;
+
+    public AudioSource deathSound;
 }

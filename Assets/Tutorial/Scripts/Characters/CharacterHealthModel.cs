@@ -107,6 +107,7 @@ public class CharacterHealthModel : MonoBehaviour
         if( m_Health <= 0 )
         {
             m_Health = 0;
+
             Debug.Log( "We died!" );
         }
     }
