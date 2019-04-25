@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Runtime.Remoting.Messaging;
 
 public class CharacterMovementModel : MonoBehaviour 
 {
