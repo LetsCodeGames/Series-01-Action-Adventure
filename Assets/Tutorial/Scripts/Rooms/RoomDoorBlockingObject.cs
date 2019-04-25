@@ -10,8 +10,10 @@ public class RoomDoorBlockingObject : MonoBehaviour
         RoomParent roomParent = GetComponentInParent<RoomParent>();
 
         float randomValue = Random.Range( 0f, 1f );
+        Debug.Log("X" + roomParent.X);
+        Debug.Log("Y" + roomParent.Y);
 
-        if( randomValue < DestroyProbability ||
+        if ( randomValue < DestroyProbability ||
             ( roomParent.X == 0 && roomParent.Y == 0 ) ||
             ( roomParent.X == 0 && roomParent.Y == 1 ) ||
             ( roomParent.X == 0 && roomParent.Y == -1 ) ||
