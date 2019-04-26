@@ -11,7 +11,8 @@ public class AttackableEnemy : AttackableBase
     public float HitPushDuration;
     public GameObject DeathFX;
     public float DelayDeathFX;
-    Character attackableCharacter;
+    CharacterBatControl m_Control;
+
 
     float m_Health;
 
@@ -21,7 +22,7 @@ public class AttackableEnemy : AttackableBase
     {
         m_Health = MaxHealth;
         deathSound = GetComponent(typeof(AudioSource)) as AudioSource;
-        attackableCharacter = GetComponentInParent<Character>();
+        m_Control = GetComponentInParent<CharacterBatControl>();
     }
 
     public float GetHealth()
@@ -31,11 +32,17 @@ public class AttackableEnemy : AttackableBase
 
     public override void OnHit( Collider2D hitCollider, ItemType item )
     {
-        if (attackableCharacter.isDead) return;
         float damage = 10;
 
         m_Health -= damage;
-        UIDamageNumbers.Instance.ShowDamageNumber( damage, transform.position );
+        if (UIDamageNumbers.Instance == null)
+        {
+            Debug.Log("No Instance!");
+        }
+        else
+        {
+            UIDamageNumbers.Instance.ShowDamageNumber(damage, transform.position);
+        }
 
         if( MovementModel != null )
         {
@@ -61,9 +68,7 @@ public class AttackableEnemy : AttackableBase
         yield return new WaitForSeconds( delay );
 
         BroadcastMessage( "OnLootDrop", SendMessageOptions.DontRequireReceiver );
-        attackableCharacter.isDead = true;
-        attackableCharacter.transform.localScale = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(deathSound.clip.length);
         Destroy( DestroyObjectOnDeath );
     }
 
@@ -72,6 +77,13 @@ public class AttackableEnemy : AttackableBase
         yield return new WaitForSeconds( delay );
 
         Instantiate( DeathFX, transform.position, Quaternion.identity );
+
+        var c_all = m_Control.gameObject.GetComponentsInChildren<Collider2D>();
+        foreach (var c in c_all)
+        {
+            DestroyImmediate(c);
+            Debug.Log("DESTROYING");
+        }
 
         if (deathSound) {
             deathSound.Play();
