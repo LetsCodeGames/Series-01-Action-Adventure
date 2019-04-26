@@ -1,282 +1,119 @@
 fileFormatVersion: 2
-guid: d9487919cb4b64b1c9fcfc5704aaac58
+guid: e49d608773779ca408420a81c6718c56
+timeCreated: 1426959438
+licenseType: Pro
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6618124891236153214
-    second: LunkWalkCycle_0
-  - first:
-      213: -5179481330389810667
-    second: LunkWalkCycle_1
-  - first:
-      213: -8930406684679288519
-    second: LunkWalkCycle_2
-  - first:
-      213: -3341075611603756833
-    second: LunkWalkCycle_3
-  - first:
-      213: 5424091870469639670
-    second: LunkWalkCycle_4
-  - first:
-      213: -5734523931631498836
-    second: LunkWalkCycle_5
-  - first:
-      213: -8328622027129032999
-    second: LunkWalkCycle_6
-  - first:
-      213: -628397963188418206
-    second: LunkWalkCycle_7
-  - first:
-      213: -8170641498836748134
-    second: LunkWalkCycle_8
-  - first:
-      213: -9189221949610359238
-    second: LunkWalkCycle_9
-  - first:
-      213: -4232295299248979423
-    second: LunkWalkCycle_10
-  - first:
-      213: 5870194918778677942
-    second: LunkWalkCycle_11
-  - first:
-      213: -1263248204394053814
-    second: LunkWalkCycle_12
-  - first:
-      213: 2494692631253361735
-    second: LunkWalkCycle_13
-  - first:
-      213: -7770083690038754170
-    second: LunkWalkCycle_14
-  - first:
-      213: -1957791625429969879
-    second: LunkWalkCycle_15
-  - first:
-      213: 8275834692013524152
-    second: LunkWalkCycle_16
-  - first:
-      213: 7482817826661032633
-    second: LunkWalkCycle_17
-  - first:
-      213: -2922379689054589037
-    second: LunkWalkCycle_18
-  - first:
-      213: -4725416068668150734
-    second: LunkWalkCycle_19
-  - first:
-      213: -971732434982064609
-    second: LunkWalkCycle_20
-  - first:
-      213: 4584832145457382790
-    second: LunkWalkCycle_21
-  - first:
-      213: -9058459999933409775
-    second: LunkWalkCycle_22
-  - first:
-      213: -4593634200616965093
-    second: LunkWalkCycle_23
-  - first:
-      213: -4858768652655470774
-    second: LunkWalkCycle_24
-  - first:
-      213: 3351260153294739298
-    second: LunkWalkCycle_25
-  - first:
-      213: -6531201354316003146
-    second: LunkWalkCycle_26
-  - first:
-      213: 7673448990653999821
-    second: LunkWalkCycle_27
-  - first:
-      213: 6963513411728616527
-    second: LunkWalkCycle_28
-  - first:
-      213: -3617053103640248761
-    second: LunkWalkCycle_29
-  - first:
-      213: -3706234084834117601
-    second: LunkWalkCycle_30
-  - first:
-      213: -8202763789633650918
-    second: LunkWalkCycle_31
-  - first:
-      213: 3919393398743383449
-    second: LunkWalkCycle_32
-  - first:
-      213: -5708694627686204024
-    second: LunkWalkCycle_33
-  - first:
-      213: 8899577321140170023
-    second: LunkWalkCycle_34
-  - first:
-      213: -1587102040479848746
-    second: LunkWalkCycle_35
-  - first:
-      213: -1981652179110768694
-    second: LunkWalkCycle_36
-  - first:
-      213: -3218056298614847108
-    second: LunkWalkCycle_37
-  - first:
-      213: -3231140633475958947
-    second: LunkWalkCycle_38
-  - first:
-      213: 8133562812288827066
-    second: LunkWalkCycle_39
-  - first:
-      213: 3595203694786476796
-    second: LunkWalkCycle_40
-  - first:
-      213: 4782023042425703670
-    second: LunkWalkCycle_41
-  - first:
-      213: -8265968773500344554
-    second: LunkWalkCycle_42
-  - first:
-      213: 4977181584148471223
-    second: LunkWalkCycle_43
-  - first:
-      213: 6563590068657768543
-    second: LunkWalkCycle_44
-  - first:
-      213: 1279454307753955862
-    second: LunkWalkCycle_45
-  - first:
-      213: -1989388755806395344
-    second: LunkWalkCycle_46
-  - first:
-      213: -6149048026950886295
-    second: LunkWalkCycle_47
-  - first:
-      213: 2995729163682283544
-    second: LunkWalkCycle_48
-  - first:
-      213: -3810311586063491935
-    second: LunkWalkCycle_49
-  - first:
-      213: 5345984255927198328
-    second: LunkWalkCycle_50
-  - first:
-      213: 827350420688836781
-    second: LunkWalkCycle_51
-  - first:
-      213: 2156675966244887266
-    second: LunkWalkCycle_52
-  - first:
-      213: -1473680242483276347
-    second: LunkWalkCycle_53
-  - first:
-      213: 1745043637466621042
-    second: LunkWalkCycle_54
-  - first:
-      213: 2098712548383145074
-    second: LunkWalkCycle_55
-  - first:
-      213: 2115142047116203006
-    second: LunkWalkCycle_56
-  - first:
-      213: 3746122784513797082
-    second: LunkWalkCycle_57
-  - first:
-      213: -4669956670589711632
-    second: LunkWalkCycle_58
-  - first:
-      213: -9037903434763453641
-    second: LunkWalkCycle_59
-  - first:
-      213: 3044638272523447312
-    second: LunkWalkCycle_60
-  - first:
-      213: -7432390461048934310
-    second: LunkWalkCycle_61
-  - first:
-      213: -3129038186969167829
-    second: LunkWalkCycle_62
-  - first:
-      213: -5900111466089434450
-    second: LunkWalkCycle_63
-  externalObjects: {}
-  serializedVersion: 10
+  fileIDToRecycleName:
+    21300000: LunkWalkCycle_0
+    21300002: LunkWalkCycle_1
+    21300004: LunkWalkCycle_2
+    21300006: LunkWalkCycle_3
+    21300008: LunkWalkCycle_4
+    21300010: LunkWalkCycle_5
+    21300012: LunkWalkCycle_6
+    21300014: LunkWalkCycle_7
+    21300016: LunkWalkCycle_8
+    21300018: LunkWalkCycle_9
+    21300020: LunkWalkCycle_10
+    21300022: LunkWalkCycle_11
+    21300024: LunkWalkCycle_12
+    21300026: LunkWalkCycle_13
+    21300028: LunkWalkCycle_14
+    21300030: LunkWalkCycle_15
+    21300032: LunkWalkCycle_16
+    21300034: LunkWalkCycle_17
+    21300036: LunkWalkCycle_18
+    21300038: LunkWalkCycle_19
+    21300040: LunkWalkCycle_20
+    21300042: LunkWalkCycle_21
+    21300044: LunkWalkCycle_22
+    21300046: LunkWalkCycle_23
+    21300048: LunkWalkCycle_24
+    21300050: LunkWalkCycle_25
+    21300052: LunkWalkCycle_26
+    21300054: LunkWalkCycle_27
+    21300056: LunkWalkCycle_28
+    21300058: LunkWalkCycle_29
+    21300060: LunkWalkCycle_30
+    21300062: LunkWalkCycle_31
+    21300064: LunkWalkCycle_32
+    21300066: LunkWalkCycle_33
+    21300068: LunkWalkCycle_34
+    21300070: LunkWalkCycle_35
+    21300072: LunkWalkCycle_36
+    21300074: LunkWalkCycle_37
+    21300076: LunkWalkCycle_38
+    21300078: LunkWalkCycle_39
+    21300080: LunkWalkCycle_40
+    21300082: LunkWalkCycle_41
+    21300084: LunkWalkCycle_42
+    21300086: LunkWalkCycle_43
+    21300088: LunkWalkCycle_44
+    21300090: LunkWalkCycle_45
+    21300092: LunkWalkCycle_46
+    21300094: LunkWalkCycle_47
+    21300096: LunkWalkCycle_48
+    21300098: LunkWalkCycle_49
+    21300100: LunkWalkCycle_50
+    21300102: LunkWalkCycle_51
+    21300104: LunkWalkCycle_52
+    21300106: LunkWalkCycle_53
+    21300108: LunkWalkCycle_54
+    21300110: LunkWalkCycle_55
+    21300112: LunkWalkCycle_56
+    21300114: LunkWalkCycle_57
+    21300116: LunkWalkCycle_58
+    21300118: LunkWalkCycle_59
+    21300120: LunkWalkCycle_60
+    21300122: LunkWalkCycle_61
+    21300124: LunkWalkCycle_62
+    21300126: LunkWalkCycle_63
+  serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
     linearTexture: 0
+    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.25
+    heightScale: .25
     normalMapFilter: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
-  generateCubemap: 6
+  generateCubemap: 0
   cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: 1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    serializedVersion: 2
     filterMode: -1
-    aniso: -1
-    mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  spritePixelsToUnits: 64
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
   textureType: 8
-  textureShape: 1
-  singleChannelComponent: 0
-  maxTextureSizeSet: 0
-  compressionQualitySet: 0
-  textureFormatSet: 0
-  platformSettings:
-  - serializedVersion: 2
-    buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
+  buildTargetSettings: []
   spriteSheet:
-    serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: LunkWalkCycle_0
+    - name: LunkWalkCycle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -284,20 +121,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db8010ed12ccf4e38bc3c65eb276ecf7
-      internalID: -6618124891236153214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_1
+    - name: LunkWalkCycle_1
       rect:
         serializedVersion: 2
         x: 128
@@ -305,20 +131,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 164da7c8985f94f83b6e5b1cd09181b0
-      internalID: -5179481330389810667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_2
+    - name: LunkWalkCycle_2
       rect:
         serializedVersion: 2
         x: 256
@@ -326,20 +141,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d9992c8c3f1844b89d3fa3bbc779b5a
-      internalID: -8930406684679288519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_3
+    - name: LunkWalkCycle_3
       rect:
         serializedVersion: 2
         x: 384
@@ -347,20 +151,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff46b58c86d42482fba2196860e7d85f
-      internalID: -3341075611603756833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_4
+    - name: LunkWalkCycle_4
       rect:
         serializedVersion: 2
         x: 512
@@ -368,20 +161,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ed148dec387d41f087e129b3474b755
-      internalID: 5424091870469639670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_5
+    - name: LunkWalkCycle_5
       rect:
         serializedVersion: 2
         x: 640
@@ -389,20 +171,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: add87cd2ad0af4ba98fdeb14e5dd8dcd
-      internalID: -5734523931631498836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_6
+    - name: LunkWalkCycle_6
       rect:
         serializedVersion: 2
         x: 768
@@ -410,20 +181,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03754676a5ec74252a4eacaa14b63ee2
-      internalID: -8328622027129032999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_7
+    - name: LunkWalkCycle_7
       rect:
         serializedVersion: 2
         x: 896
@@ -431,20 +191,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccc1e26d08802453596805ed8b45dd58
-      internalID: -628397963188418206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_8
+    - name: LunkWalkCycle_8
       rect:
         serializedVersion: 2
         x: 0
@@ -452,20 +201,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 18c0088bcd40342de8d7d2e064cb4d31
-      internalID: -8170641498836748134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_9
+    - name: LunkWalkCycle_9
       rect:
         serializedVersion: 2
         x: 128
@@ -473,20 +211,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9816a58b40ef4453ab690ac36efea73
-      internalID: -9189221949610359238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_10
+    - name: LunkWalkCycle_10
       rect:
         serializedVersion: 2
         x: 256
@@ -496,18 +223,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd2895a3fcd384857ba8a81bde3c70f3
-      internalID: -4232295299248979423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_11
+    - name: LunkWalkCycle_11
       rect:
         serializedVersion: 2
         x: 384
@@ -517,18 +233,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b4904759f89d4d60aca1ca20f4b42f1
-      internalID: 5870194918778677942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_12
+    - name: LunkWalkCycle_12
       rect:
         serializedVersion: 2
         x: 512
@@ -538,18 +243,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d7a723040a734a618b9d88b323a12a0
-      internalID: -1263248204394053814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_13
+    - name: LunkWalkCycle_13
       rect:
         serializedVersion: 2
         x: 640
@@ -559,18 +253,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e66e331301164448bb893980032e38d
-      internalID: 2494692631253361735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_14
+    - name: LunkWalkCycle_14
       rect:
         serializedVersion: 2
         x: 768
@@ -580,18 +263,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29a55e0b6c7d445bebdad1dc65687e8b
-      internalID: -7770083690038754170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_15
+    - name: LunkWalkCycle_15
       rect:
         serializedVersion: 2
         x: 896
@@ -601,18 +273,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fc17ace095d44e6bbfe775f1b29b297
-      internalID: -1957791625429969879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_16
+    - name: LunkWalkCycle_16
       rect:
         serializedVersion: 2
         x: 0
@@ -620,20 +281,9 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a097e9a13ce34439a9008d7749aa324
-      internalID: 8275834692013524152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_17
+    - name: LunkWalkCycle_17
       rect:
         serializedVersion: 2
         x: 128
@@ -643,18 +293,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 790d3d238277f447db15951370c57110
-      internalID: 7482817826661032633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_18
+    - name: LunkWalkCycle_18
       rect:
         serializedVersion: 2
         x: 256
@@ -664,18 +303,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a3d0534276bd445d87c1ec7bddbe32a
-      internalID: -2922379689054589037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_19
+    - name: LunkWalkCycle_19
       rect:
         serializedVersion: 2
         x: 384
@@ -685,18 +313,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f4ef852d36e04d27b96ce244834ef2f
-      internalID: -4725416068668150734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_20
+    - name: LunkWalkCycle_20
       rect:
         serializedVersion: 2
         x: 512
@@ -706,18 +323,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfae378449dbd4ddab31e1fe6a8fb844
-      internalID: -971732434982064609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_21
+    - name: LunkWalkCycle_21
       rect:
         serializedVersion: 2
         x: 640
@@ -727,18 +333,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b44acfa786b504a6597e06b018ae6e64
-      internalID: 4584832145457382790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_22
+    - name: LunkWalkCycle_22
       rect:
         serializedVersion: 2
         x: 768
@@ -748,18 +343,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f9ccab2ed80444dc888c4d47d6f7cf6
-      internalID: -9058459999933409775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_23
+    - name: LunkWalkCycle_23
       rect:
         serializedVersion: 2
         x: 896
@@ -769,18 +353,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c241b053eade459c8bbecb8e53e6bee
-      internalID: -4593634200616965093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_24
+    - name: LunkWalkCycle_24
       rect:
         serializedVersion: 2
         x: 0
@@ -790,18 +363,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d55e89caaf254f86ab6104806683518
-      internalID: -4858768652655470774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_25
+    - name: LunkWalkCycle_25
       rect:
         serializedVersion: 2
         x: 128
@@ -811,18 +373,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdd113fc68d534b42b1f04d968565c03
-      internalID: 3351260153294739298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_26
+    - name: LunkWalkCycle_26
       rect:
         serializedVersion: 2
         x: 256
@@ -832,18 +383,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efcfb8589a4614664a21624333b87f6e
-      internalID: -6531201354316003146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_27
+    - name: LunkWalkCycle_27
       rect:
         serializedVersion: 2
         x: 384
@@ -853,18 +393,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bfded29b13244ff9be2201d2b2a9a63
-      internalID: 7673448990653999821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_28
+    - name: LunkWalkCycle_28
       rect:
         serializedVersion: 2
         x: 512
@@ -874,18 +403,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e05f612b4b66944d1a5cb6ec75875a83
-      internalID: 6963513411728616527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_29
+    - name: LunkWalkCycle_29
       rect:
         serializedVersion: 2
         x: 640
@@ -895,18 +413,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61fb8b40029e147ef9a694af09570bab
-      internalID: -3617053103640248761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_30
+    - name: LunkWalkCycle_30
       rect:
         serializedVersion: 2
         x: 768
@@ -916,18 +423,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a9d0760e6fb44a3ea9466fab85fc8ec
-      internalID: -3706234084834117601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_31
+    - name: LunkWalkCycle_31
       rect:
         serializedVersion: 2
         x: 896
@@ -937,18 +433,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83769618c969e4998ae98a7874e5e61b
-      internalID: -8202763789633650918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_32
+    - name: LunkWalkCycle_32
       rect:
         serializedVersion: 2
         x: 0
@@ -958,18 +443,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ecc50929e1e14a4fa3d56c1a82f2d6f
-      internalID: 3919393398743383449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_33
+    - name: LunkWalkCycle_33
       rect:
         serializedVersion: 2
         x: 128
@@ -979,18 +453,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48bb9272cc0f9427492b4bfd0574bbac
-      internalID: -5708694627686204024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_34
+    - name: LunkWalkCycle_34
       rect:
         serializedVersion: 2
         x: 256
@@ -1000,18 +463,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 867a66e7e187c400195003ab55993902
-      internalID: 8899577321140170023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_35
+    - name: LunkWalkCycle_35
       rect:
         serializedVersion: 2
         x: 384
@@ -1021,18 +473,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 179863bd8bb994cd09709b444ee4e71f
-      internalID: -1587102040479848746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_36
+    - name: LunkWalkCycle_36
       rect:
         serializedVersion: 2
         x: 512
@@ -1042,18 +483,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6f051dff89c94e318201e20b2064ed4
-      internalID: -1981652179110768694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_37
+    - name: LunkWalkCycle_37
       rect:
         serializedVersion: 2
         x: 640
@@ -1063,18 +493,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80e3e7f9fe09e48109d46f6343cfc664
-      internalID: -3218056298614847108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_38
+    - name: LunkWalkCycle_38
       rect:
         serializedVersion: 2
         x: 768
@@ -1084,18 +503,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cdb832c818e54f08ace7b79cccde162
-      internalID: -3231140633475958947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_39
+    - name: LunkWalkCycle_39
       rect:
         serializedVersion: 2
         x: 896
@@ -1105,18 +513,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fff2c6640e3d4e3d8405b12b0512c8f
-      internalID: 8133562812288827066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_40
+    - name: LunkWalkCycle_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1126,18 +523,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50c3e73ce4df14a4fabf7bbedd12b29d
-      internalID: 3595203694786476796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_41
+    - name: LunkWalkCycle_41
       rect:
         serializedVersion: 2
         x: 128
@@ -1147,18 +533,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00ec2160ff4ee4599bc90aa4596a9cba
-      internalID: 4782023042425703670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_42
+    - name: LunkWalkCycle_42
       rect:
         serializedVersion: 2
         x: 256
@@ -1168,18 +543,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 255be2d029b1a468384d6dd51e22140d
-      internalID: -8265968773500344554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_43
+    - name: LunkWalkCycle_43
       rect:
         serializedVersion: 2
         x: 384
@@ -1189,18 +553,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c19cb424ac9f4432f8a07ac7cce83185
-      internalID: 4977181584148471223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_44
+    - name: LunkWalkCycle_44
       rect:
         serializedVersion: 2
         x: 512
@@ -1210,18 +563,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bc6b3d5e0f5940fe8327a294625e97a
-      internalID: 6563590068657768543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_45
+    - name: LunkWalkCycle_45
       rect:
         serializedVersion: 2
         x: 640
@@ -1231,18 +573,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adb2b2fdd9b054cdf8bab812a4ed2d64
-      internalID: 1279454307753955862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_46
+    - name: LunkWalkCycle_46
       rect:
         serializedVersion: 2
         x: 768
@@ -1252,18 +583,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1d3a14e8edd24b63a3981af905beb56
-      internalID: -1989388755806395344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_47
+    - name: LunkWalkCycle_47
       rect:
         serializedVersion: 2
         x: 896
@@ -1273,18 +593,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd87c4549aa204f8d876d27c7c69d886
-      internalID: -6149048026950886295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_48
+    - name: LunkWalkCycle_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1294,18 +603,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20538c72fe17e43dd84e24ed736b605c
-      internalID: 2995729163682283544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_49
+    - name: LunkWalkCycle_49
       rect:
         serializedVersion: 2
         x: 128
@@ -1315,18 +613,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9fae1118986b4ba5a45294d84495502
-      internalID: -3810311586063491935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_50
+    - name: LunkWalkCycle_50
       rect:
         serializedVersion: 2
         x: 256
@@ -1336,18 +623,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 766bfc32d69e644119255a5162fdcae6
-      internalID: 5345984255927198328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_51
+    - name: LunkWalkCycle_51
       rect:
         serializedVersion: 2
         x: 384
@@ -1357,18 +633,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c3a7abf2784f481ca67feeaf2a4e33d
-      internalID: 827350420688836781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_52
+    - name: LunkWalkCycle_52
       rect:
         serializedVersion: 2
         x: 512
@@ -1378,18 +643,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e78299797f9ba409c9283e0f7b381707
-      internalID: 2156675966244887266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_53
+    - name: LunkWalkCycle_53
       rect:
         serializedVersion: 2
         x: 640
@@ -1399,18 +653,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11a9dd0de704e4768969a38761e38f5a
-      internalID: -1473680242483276347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_54
+    - name: LunkWalkCycle_54
       rect:
         serializedVersion: 2
         x: 768
@@ -1420,18 +663,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21a1b861a262b45c7a19d21f5f85a876
-      internalID: 1745043637466621042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_55
+    - name: LunkWalkCycle_55
       rect:
         serializedVersion: 2
         x: 896
@@ -1441,18 +673,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6175b0e18bc3246a08cff35c1acb5f34
-      internalID: 2098712548383145074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_56
+    - name: LunkWalkCycle_56
       rect:
         serializedVersion: 2
         x: 0
@@ -1462,18 +683,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3b047ddf077f4163820171a7ad4c4b0
-      internalID: 2115142047116203006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_57
+    - name: LunkWalkCycle_57
       rect:
         serializedVersion: 2
         x: 128
@@ -1483,18 +693,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52bfc9728d9fa4aed89a057c65a136fb
-      internalID: 3746122784513797082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_58
+    - name: LunkWalkCycle_58
       rect:
         serializedVersion: 2
         x: 256
@@ -1504,18 +703,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae1e6917786314597964502f154566ba
-      internalID: -4669956670589711632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_59
+    - name: LunkWalkCycle_59
       rect:
         serializedVersion: 2
         x: 384
@@ -1525,18 +713,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46b57b0057b004a5c800bcbdcf693031
-      internalID: -9037903434763453641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_60
+    - name: LunkWalkCycle_60
       rect:
         serializedVersion: 2
         x: 512
@@ -1546,18 +723,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be2e026fbca324fd3a578f5b167ae335
-      internalID: 3044638272523447312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_61
+    - name: LunkWalkCycle_61
       rect:
         serializedVersion: 2
         x: 640
@@ -1567,18 +733,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b23d80796eb90403f8eab8cd95286111
-      internalID: -7432390461048934310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_62
+    - name: LunkWalkCycle_62
       rect:
         serializedVersion: 2
         x: 768
@@ -1588,18 +743,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6483cfb69dc164eaf8842d76fc19f722
-      internalID: -3129038186969167829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LunkWalkCycle_63
+    - name: LunkWalkCycle_63
       rect:
         serializedVersion: 2
         x: 896
@@ -1609,29 +753,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6959b68126004a588b70bbc5c0e3891
-      internalID: -5900111466089434450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: c27d8b80787d246c198ff0cd2aa4e2bb
-    internalID: 0
-    vertices: []
-    indices: 
-    edges: []
-    weights: []
-    secondaryTextures: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
