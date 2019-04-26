@@ -25,5 +25,6 @@ public class InteractableChest : InteractableBase
         character.Inventory.AddItem( ItemInChest, Amount, PickupType.FromChest );
         m_Renderer.sprite = OpenChestSprite;
         m_IsOpen = true;
+        this.PlayInteractionSound();
     }
 }

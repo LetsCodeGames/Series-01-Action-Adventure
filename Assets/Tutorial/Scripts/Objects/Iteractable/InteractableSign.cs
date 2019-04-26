@@ -14,11 +14,10 @@ public class InteractableSign : InteractableBase
         }
         else
         {
+            this.PlayInteractionSound();
             character.Movement.SetFrozen( true, true, true );
             DialogBox.Show( Text );
         }
         
     }
-
-    
 }
