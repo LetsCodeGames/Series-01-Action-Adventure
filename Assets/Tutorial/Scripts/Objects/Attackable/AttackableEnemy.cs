@@ -82,7 +82,6 @@ public class AttackableEnemy : AttackableBase
         foreach (var c in c_all)
         {
             DestroyImmediate(c);
-            Debug.Log("DESTROYING");
         }
 
         if (deathSound) {
