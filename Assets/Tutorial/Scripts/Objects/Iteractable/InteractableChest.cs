@@ -12,6 +12,7 @@ public class InteractableChest : InteractableBase
 
     void Awake()
     {
+        base.Awake();
         m_Renderer = GetComponentInChildren<SpriteRenderer>();
     }
 

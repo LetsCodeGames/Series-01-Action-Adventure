@@ -5,7 +5,7 @@ public class InteractableBase : MonoBehaviour
 {
     AudioSource interactionSound;
 
-    void Awake()
+    protected virtual void Awake()
     {
         interactionSound = GetComponent(typeof(AudioSource)) as AudioSource;
     }
@@ -16,6 +16,7 @@ public class InteractableBase : MonoBehaviour
     public void PlayInteractionSound() {
         if (!interactionSound) {
             Debug.Log("No audio selected!");
+            return;
         }
         interactionSound.Play();
     }
